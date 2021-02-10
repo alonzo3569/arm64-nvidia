@@ -1,0 +1,6 @@
+/gazebo
+/gazebo_gui
+/rosout
+/wamv/rob_st_pub
+/wamv/robot_localization/ekf_localization
+/wamv/robot_localization/navsat_transform_node

@@ -1,0 +1,54 @@
+<moosrosconfig>
+
+  <!-- ROS Publish -->
+
+  <message>
+    <moosname>NAV_X</moosname>
+    <rosname>NAV_X</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+  <message>
+    <moosname>NAV_Y</moosname>
+    <rosname>NAV_Y</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+  <message>
+    <moosname>NAV_LONG</moosname>
+    <rosname>NAV_LONG</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+  <message>
+    <moosname>NAV_LAT</moosname>
+    <rosname>NAV_LAT</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+  <message>
+    <moosname>NAV_HEADING</moosname>
+    <rosname>NAV_HEADING</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+  <message>
+    <moosname>NAV_SPEED</moosname>
+    <rosname>NAV_SPEED_X</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+
+</moosrosconfig>

@@ -1,0 +1,16 @@
+.bash_history
+.bashrc
+.cmake/
+.config/
+.fltk/
+.gazebo/
+.gitconfig
+.profile
+.ros/
+.sdformat/
+.subversion/
+.viminfo
+bagfiles
+moos-ivp-logan
+ntu_vrx
+moos-ivp

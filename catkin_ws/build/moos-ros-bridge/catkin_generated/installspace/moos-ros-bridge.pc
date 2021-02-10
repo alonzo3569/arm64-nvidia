@@ -1,0 +1,8 @@
+prefix=/root/catkin_ws/install
+
+Name: moos-ros-bridge
+Description: Description of moos-ros-bridge
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
