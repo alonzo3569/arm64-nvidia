@@ -14,3 +14,6 @@ bagfiles
 moos-ivp-logan
 ntu_vrx
 moos-ivp
+bin
+lib
+build
