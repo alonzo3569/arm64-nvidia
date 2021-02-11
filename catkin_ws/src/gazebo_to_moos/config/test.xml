@@ -51,4 +51,21 @@
   </message>
 
 
+  <!-- MOOS Publish -->
+  <message>
+    <moosname>ROS_THRUST_R</moosname>
+    <rosname>wamv/thrusters/right_thrust_cmd</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float32</rostype>
+    <direction>toROS</direction>
+  </message>
+
+  <message>
+    <moosname>ROS_THRUST_L</moosname>
+    <rosname>wamv/thrusters/left_thrust_cmd</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float32</rostype>
+    <direction>toROS</direction>
+  </message>
+
 </moosrosconfig>
