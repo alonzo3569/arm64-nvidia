@@ -1,0 +1,9 @@
+//------------------------------------------------
+// pThrustControl config block
+
+ProcessConfig = pThrustControl
+{
+   AppTick   = 4
+   CommsTick = 4
+}
+
