@@ -68,4 +68,22 @@
     <direction>toROS</direction>
   </message>
 
+
+  <!-- This is only for vrx simulation, not necessary-->
+  <message>
+    <moosname>ROS_THRUST_ANGLE_R</moosname>
+    <rosname>wamv/thrusters/right_thrust_angle</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float32</rostype>
+    <direction>toROS</direction>
+  </message>
+
+  <message>
+    <moosname>ROS_THRUST_ANGLE_L</moosname>
+    <rosname>wamv/thrusters/left_thrust_angle</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float32</rostype>
+    <direction>toROS</direction>
+  </message>
+
 </moosrosconfig>

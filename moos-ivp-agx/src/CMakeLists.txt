@@ -17,6 +17,7 @@ INCLUDE_DIRECTORIES(${LOCAL_LIBRARY_DIRS})
 ADD_SUBDIRECTORY(lib_behaviors-alonzo)
 ADD_SUBDIRECTORY(pPoseKeepingX)
 ADD_SUBDIRECTORY(uSimMarineX_HWGR)
+ADD_SUBDIRECTORY(pThrustControl)
 
 ##############################################################################
 #                           END of CMakeLists.txt

@@ -91,6 +91,8 @@ bool ThrustControl::Iterate()
   thrustRudderToLR();
   Notify("ROS_THRUST_L", m_des_L);
   Notify("ROS_THRUST_R", m_des_R);
+  Notify("ROS_THRUST_ANGLE_L", 0.0); // Only for vrx simulation
+  Notify("ROS_THRUST_ANGLE_R", 0.0);
 
   AppCastingMOOSApp::PostReport();
   return(true);

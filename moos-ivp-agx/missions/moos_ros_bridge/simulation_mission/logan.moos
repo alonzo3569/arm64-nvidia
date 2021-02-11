@@ -26,11 +26,12 @@ ProcessConfig = ANTLER
   Run = pMarineViewer	  @ NewConsole = false
   Run = uProcessWatch	  @ NewConsole = false
   Run = pNodeReporter	  @ NewConsole = false
-  Run = uTimerScript	  @ NewConsole = false
+  //Run = uTimerScript	  @ NewConsole = false
   Run = uXMS		  @ NewConsole = false
   //Run = pPoseKeeping	  @ NewConsole = false
   //Run = pPoseKeepingX	  @ NewConsole = false
   Run = MOOS_ROS_BRIDGE   @ NewConsole = false
+  Run = pThrustControl   @ NewConsole = false
 }
 
 //------------------------------------------
@@ -132,7 +133,7 @@ ProcessConfig = pMarineViewer
   AppTick    = 4
   CommsTick  = 4
 
-  tiff_file            = ./map/sand_island.tif
+  tiff_file            = sand_island.tif
 
   set_pan_x            = -90
   set_pan_y            = -280
@@ -186,7 +187,8 @@ ProcessConfig = pNodeReporter
 // uTimerScript config block
 ProcessConfig = uTimerScript  
 {  
-  //event = var= THRUST_MODE_DIFFERENTIAL, val=true, time=0
+  event = var= ROS_THRUST_R, val=10, time=5
+  event = var= ROS_THRUST_L, val=10, time=5
 }
 
 //------------------------------------------
@@ -195,7 +197,7 @@ ProcessConfig = uXMS
 {
   AppTick   = 4                                                 
   CommsTick = 4
-  var = NAV_X,NAV_Y,NAV_HEADING,NAV_SPEED,NAV_SPEED_X,NAV_LONG,NAV_LAT,NODE_REPORT_LOCAL 
+  var = NAV_X,NAV_Y,NAV_HEADING,NAV_SPEED,NAV_SPEED_X,NAV_LONG,NAV_LAT,NODE_REPORT_LOCAL,ROS_THRUST_R,ROS_THRUST_L 
   //history_var = DESIRED_THRUST_R
 }
 
@@ -248,4 +250,14 @@ ProcessConfig = MOOS_ROS_BRIDGE
 {
   AppTick    = 1
   CommsTick  = 20
+}
+//------------------------------------------
+// pThrustControl config block
+ProcessConfig = pThrustControl 
+{
+  AppTick    = 4
+  CommsTick  = 4
+
+  max_rudder  = 50
+  max _thrust = 70 // 70 for vrx simulation
 }

@@ -17,4 +17,5 @@ moos-ivp
 bin
 lib
 build
-MOOSLog*
+moos-ivp-agx/missions/moos_ros_bridge/simulation_mission/targ_*
+moos-ivp-agx/missions/moos_ros_bridge/simulation_mission/MOOSLog*
