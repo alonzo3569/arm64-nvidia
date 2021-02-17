@@ -16,6 +16,12 @@ ntu_vrx
 moos-ivp
 bin
 lib
-build
+catkin_ws/build
+moos-ivp-agx/build
+moos-ivp-aquaticus
 moos-ivp-agx/missions/moos_ros_bridge/simulation_mission/targ_*
 moos-ivp-agx/missions/moos_ros_bridge/simulation_mission/MOOSLog*
+moos-ivp-agx/missions/moos_ros_bridge/simulation_mission/.LastOpenedMOOSLogDirectory
+moos-ivp-agx/missions/Taichung_test/simulation_mission/targ_*
+moos-ivp-agx/missions/Taichung_test/simulation_mission/MOOSLog*
+moos-ivp-agx/missions/Taichung_test/simulation_mission/.LastOpenedMOOSLogDirectory

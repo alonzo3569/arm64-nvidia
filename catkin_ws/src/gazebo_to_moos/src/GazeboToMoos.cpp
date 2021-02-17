@@ -19,7 +19,8 @@ GazeboToMoos::GazeboToMoos(){
     pub_NavSpeed = m_nh.advertise<std_msgs::Float64>("NAV_SPEED_X", 10);
     pub_NavHdg = m_nh.advertise<std_msgs::Float64>("NAV_HEADING", 10);
     // Subscriber
-    sub_gps = m_nh.subscribe("wamv/sensors/gps/gps/fix", 1000, &GazeboToMoos::callback_gps, this);
+    sub_gps = m_nh.subscribe("/fix", 1000, &GazeboToMoos::callback_gps, this);
+    //sub_gps = m_nh.subscribe("wamv/sensors/gps/gps/fix", 1000, &GazeboToMoos::callback_gps, this); // for gazebo vrx
     sub_imu = m_nh.subscribe("wamv/robot_localization/odometry/filtered", 1000, &GazeboToMoos::callback_imu, this);
     // Iterate
     // fail to use createTimer in constructor
@@ -71,6 +72,8 @@ void GazeboToMoos::setPose(geometry_msgs::Pose msg)
     // which later become NAV_X,NAV_Y
     x.set(msg.position.x);
     y.set(msg.position.y);   
+    //x.set(0.0);
+    //y.set(0.0);   
 
     // transform quaterion into rpy
     tf::Quaternion q(msg.orientation.x,
@@ -91,7 +94,8 @@ void GazeboToMoos::setVelocity(geometry_msgs::Twist msg)
 {
     // speed later become NAV_SPEED
     // does it mean liner.x is in "base_link" frame ?
-    speed.set(msg.linear.x);
+    //speed.set(msg.linear.x);
+    speed.set(0.0);
     //bowSpeed.set(msg.linear.y);
     //zAngularV.set(msg.angular.z);
 }
