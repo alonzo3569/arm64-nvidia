@@ -1,0 +1,13 @@
+<moosrosconfig>
+
+  <!-- ROS Publish -->
+
+  <message>
+    <moosname>NAV_X</moosname>
+    <rosname>NAV_X</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
+</moosrosconfig>

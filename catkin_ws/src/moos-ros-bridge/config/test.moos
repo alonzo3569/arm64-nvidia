@@ -1,0 +1,34 @@
+//------------------------------------------------
+// File: bravo.bhv
+// Name: M. Benjamin
+// Date: Jan 1, 2010
+//------------------------------------------------
+
+ServerHost = localhost
+ServerPort = 9000
+Simulator  = true
+
+Community    = moosros
+MOOSTimeWarp = 1
+
+Processconfig = ANTLER
+{
+  MSBetweenLaunches = 100
+   
+  Run = MOOSDB           @ NewConsole = false
+  Run = MOOS_ROS_BRIDGE  @ NewConsole = false
+  Run = uMS              @ NewConsole = false 
+}
+
+
+ProcessConfig = MOOS_ROS_BRIDGE
+{
+  AppTick    = 1
+  CommsTick  = 20
+}
+
+ProcessConfig = uMS
+{
+  AppTick    = 4
+  CommsTick  = 4
+}
