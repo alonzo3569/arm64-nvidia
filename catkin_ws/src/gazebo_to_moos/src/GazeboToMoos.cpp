@@ -72,8 +72,6 @@ void GazeboToMoos::setPose(geometry_msgs::Pose msg)
     // which later become NAV_X,NAV_Y
     x.set(msg.position.x);
     y.set(msg.position.y);   
-    //x.set(0.0);
-    //y.set(0.0);   
 
     // transform quaterion into rpy
     tf::Quaternion q(msg.orientation.x,
@@ -94,8 +92,8 @@ void GazeboToMoos::setVelocity(geometry_msgs::Twist msg)
 {
     // speed later become NAV_SPEED
     // does it mean liner.x is in "base_link" frame ?
-    //speed.set(msg.linear.x);
-    speed.set(0.0);
+    speed.set(msg.linear.x);
+    //speed.set(0.0);
     //bowSpeed.set(msg.linear.y);
     //zAngularV.set(msg.angular.z);
 }
