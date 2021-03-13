@@ -138,6 +138,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(GazeboToMoos src/GazeboToMoos.cpp)
+add_executable(PubToBridge src/pub.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -153,7 +154,9 @@ add_executable(GazeboToMoos src/GazeboToMoos.cpp)
 target_link_libraries(GazeboToMoos
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(PubToBridge
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

@@ -22,6 +22,7 @@ GazeboToMoos::GazeboToMoos(){
     sub_gps = m_nh.subscribe("/fix", 1000, &GazeboToMoos::callback_gps, this);
     //sub_gps = m_nh.subscribe("wamv/sensors/gps/gps/fix", 1000, &GazeboToMoos::callback_gps, this); // for gazebo vrx
     sub_imu = m_nh.subscribe("wamv/robot_localization/odometry/filtered", 1000, &GazeboToMoos::callback_imu, this);
+    //sub_imu_raw = m_nh.subscribe("/diagnostics", 1000, &GazeboToMoos::callback_imu_raw, this);
     // Iterate
     // fail to use createTimer in constructor
     // compile successfully but not calling iterate function
@@ -43,8 +44,14 @@ void GazeboToMoos::callback_gps(const sensor_msgs::NavSatFix::ConstPtr& msg){
 
 void GazeboToMoos::callback_imu(const nav_msgs::Odometry::ConstPtr& msg){
     setPose(msg->pose.pose);
+    //setPawYaw(raw_msg->values)
     setVelocity(msg->twist.twist);
 }
+
+//void GazeboToMoos::callback_imu_raw(const diagnostic_msgs::DiagnosticStatus::ConstPtr& msg){
+//    setRawYaw(msg->pose.pose);
+//    setRawVelocity(msg->twist.twist);
+//}
 
 // Iterate
 void GazeboToMoos::iterate(const ros::TimerEvent&)

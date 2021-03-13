@@ -14,12 +14,13 @@
 
   <!-- Navsat node -->
   <node ns="wamv/robot_localization" pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true" output="screen">
+	  <param name="tf_prefix" value="wamv" /> <!-- logan -->	  
     <param name="magnetic_declination_radians" value="0"/>
     <param name="yaw_offset" value="0"/>
     <param name="zero_altitude" value="true"/>
 
     <param name="use_odometry_yaw" value="false"/>
-    <param name="wait_for_datum" value="false"/>
+    <param name="wait_for_datum" value="true"/> <!-- logan -->
    
     <param name="publish_filtered_gps" value="true"/>
     <param name="broadcast_utm_transform" value="false"/>
@@ -27,11 +28,11 @@
     <remap from="/imu/data" to="/imu" />
     <remap from="/gps/fix" to="/fix" />
     <remap from="/odometry/filtered" to="/wamv/robot_localization/odometry/filtered" />       
-    <!-- rosparam param="datum">[24.173425, -120.692385, 0.0, wamv/odom, wamv/base_link]</rosparam -->
+    <rosparam param="datum">[24.173425, -120.692385, 0.0, wamv/odom, wamv/base_link]</rosparam> <!-- logan -->
   </node>
 
   <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
-        args="$(find gazebo_to_moos)/config/test.xml $(find gazebo_to_moos)/config/test.moos" 
+        args="$(find gazebo_to_moos)/config/test.xml $(find gazebo_to_moos)/config/logan.moos" 
         respawn="false" output="screen" />
 
   <node pkg="gazebo_to_moos" type="GazeboToMoos" name="GazeboToMoos" respawn="false" output="screen" >

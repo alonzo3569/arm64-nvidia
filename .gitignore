@@ -29,3 +29,6 @@ moos-ivp-agx/missions/Taichung_test/simulation_mission/.LastOpenedMOOSLogDirecto
 moos-ivp-agx/missions/NTU_dorm_test/simulation_mission/targ_*
 moos-ivp-agx/missions/NTU_dorm_test/simulation_mission/MOOSLog*
 moos-ivp-agx/missions/NTU_dorm_test/simulation_mission/.LastOpenedMOOSLogDirectory 
+.vim/
+backup-moos-ros-bridge/
+

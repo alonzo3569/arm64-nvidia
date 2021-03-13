@@ -5,6 +5,11 @@
         respawn="false" output="screen" />
 
   <node pkg="moos-ros-bridge" type="counter" name="counter" respawn="false" 
-        output="screen" />
-  
+        output="screen" /> 
+
+  <!-- <node pkg="gazebo_to_moos" type="PubToBridge" name="pub_to_bridge" respawn="false"
+        output="screen" />  -->
+
+  <!-- <node pkg="gazebo_to_moos" type="py_pub.py" name="py_pub" respawn="false"
+        output="screen" />  -->
 </launch>

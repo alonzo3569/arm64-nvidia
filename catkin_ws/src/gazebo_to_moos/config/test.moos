@@ -17,7 +17,7 @@ Processconfig = ANTLER
    
   Run = MOOSDB           @ NewConsole = false
   Run = MOOS_ROS_BRIDGE  @ NewConsole = false
-  Run = uMS              @ NewConsole = false 
+  //Run = uMS              @ NewConsole = false 
 }
 
 

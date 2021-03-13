@@ -25,6 +25,7 @@ class GazeboToMoos
         // Subscriber
         ros::Subscriber sub_gps;
         ros::Subscriber sub_imu;
+        //ros::Subscriber sub_imu_raw;
 
     public:
 	// Data
@@ -36,6 +37,7 @@ class GazeboToMoos
         ~GazeboToMoos();
         void callback_gps(const sensor_msgs::NavSatFix::ConstPtr& msg);
         void callback_imu(const nav_msgs::Odometry::ConstPtr& msg);
+        //void callback_imu_raw(const nav_msgs::Odometry::ConstPtr& msg);
 	void iterate(const ros::TimerEvent&);
         void setPose(geometry_msgs::Pose msg);
         void setVelocity(geometry_msgs::Twist msg);

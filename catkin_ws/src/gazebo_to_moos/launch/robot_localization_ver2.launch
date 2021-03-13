@@ -56,7 +56,7 @@
   </node>
 
   <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
-        args="$(find gazebo_to_moos)/config/test.xml $(find gazebo_to_moos)/config/test.moos" 
+	  args="$(find gazebo_to_moos)/config/test.xml $(find gazebo_to_moos)/config/logan.moos" 
         respawn="false" output="screen" />
 
   <node pkg="gazebo_to_moos" type="GazeboToMoos" name="GazeboToMoos" respawn="false" output="screen" >
