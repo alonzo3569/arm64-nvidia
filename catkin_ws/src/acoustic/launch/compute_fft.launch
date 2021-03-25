@@ -1,0 +1,5 @@
+<launch>
+	<node name="compute_fft_node" pkg="acoustic" type="compute_fft.py" output="screen" clear_params="true">
+		<rosparam command="load" file="$(find acoustic)/config/compute_fft.yaml"/>
+	</node>
+</launch>

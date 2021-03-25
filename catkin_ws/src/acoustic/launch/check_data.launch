@@ -1,0 +1,3 @@
+<launch>
+	<node name="check_data_node" pkg="acoustic" type="check_data.py" output="screen"/>
+</launch>

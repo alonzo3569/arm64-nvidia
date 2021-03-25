@@ -1,0 +1,5 @@
+<launch>
+	<node name="plot_streaming_data_node" pkg="acoustic" type="plot_streaming_data_V6.py" output="screen" clear_params="true">
+		<rosparam command="load" file="$(find acoustic)/config/plot_streaming_data.yaml"/>
+	</node>
+</launch>

@@ -1,0 +1,9 @@
+DEVICE_NAME_            : "Focusrite 18i8 2nd"
+pcm_name_               : "hw:1,0"
+pcm_frames_             : 100
+pcm_sampleRate_         : 96000
+pcm_available_channels_ : 10
+pcm_using_channels_     : 4
+pcm_loops_              : 0
+pcm_recordTime_         : 0.5
+pcm_bits_               : 32

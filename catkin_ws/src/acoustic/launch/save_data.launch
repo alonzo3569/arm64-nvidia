@@ -1,0 +1,5 @@
+<launch>
+	<node name="save_data" pkg="acoustic" type="save_data" output="screen" clear_params="true">
+		<rosparam command="load" file="$(find acoustic)/config/save_data.yaml" />
+	</node>
+</launch>

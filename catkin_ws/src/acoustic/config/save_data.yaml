@@ -1,0 +1,6 @@
+## config file for /acoustic/save_data node 
+## written by Shane
+## 2020_12_14
+
+FILE_PATH_: "/home/yong/data/"
+FILE_LENGTH_: 1                 # wave file length (minute)

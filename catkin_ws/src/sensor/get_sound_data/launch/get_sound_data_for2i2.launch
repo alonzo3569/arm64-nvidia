@@ -1,0 +1,9 @@
+<launch>
+	<!-- Setup parameter -->
+	<arg name="bag" default="false"/>
+
+    <node name="get_sound_data_for2i2" pkg="get_sound_data" type="get_sound_data_for2i2" output="screen" clear_params="true" required="true">
+    	<rosparam command="load" file="$(find get_sound_data)/config/recorder_params_for2i2.yaml" />
+    </node>
+	<node name="rosbag_hydrophone_data" pkg="rosbag" type="record" args="record -o $(find get_sound_data)/bagfiles/hydrophone /get_sound_data_for2i2/hydrophone_data" if="$(arg bag)"/>
+</launch>
