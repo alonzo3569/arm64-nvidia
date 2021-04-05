@@ -1,0 +1,5 @@
+<launch>
+        <node name="get_sound_data" pkg="acoustic" type="get_sound_data" output="screen" clear_params="true">
+                <rosparam command="load" file="$(find acoustic)/config/get_sound_data.yaml" />
+        </node>
+</launch>

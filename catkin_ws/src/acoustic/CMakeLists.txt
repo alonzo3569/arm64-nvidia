@@ -207,3 +207,13 @@ include_directories(
 # catkin_add_nosetests(test)
 add_executable(save_data src/save_data/save_data.cpp)
 target_link_libraries(save_data ${catkin_LIBRARIES})
+add_executable(get_sound_data src/get_sound_data/get_sound_data_for4i4.cpp)
+target_link_libraries(get_sound_data ${catkin_LIBRARIES})
+
+find_package(
+  ALSA REQUIRED
+)
+if (ALSA_FOUND)
+    include_directories(${ALSA_INCLUDE_DIRS})
+    target_link_libraries (get_sound_data ${ALSA_LIBRARIES})
+endif(ALSA_FOUND)
