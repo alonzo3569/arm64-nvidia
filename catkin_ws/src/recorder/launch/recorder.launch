@@ -1,0 +1,26 @@
+<launch>
+
+    <!-- Params -->
+    <!-- <arg name="format" default="pyaudio.paInt32"/> -->
+    <arg name="channels" default="2"/>
+    <arg name="rate" default="192000"/>
+    <arg name="chunk" default="19200"/>
+    <arg name="msg_length" default="1.0"/>
+
+
+    <!-- Focusrite -->
+    <node pkg="recorder" type="audio.py" name="recorder_node" output="screen">
+        <!-- <param name="format" type="str" value="$(arg format)"/> -->
+        <param name="channels" type="int" value="$(arg channels)"/>
+        <param name="rate" type="int" value="$(arg rate)"/>
+        <param name="chunk" type="int" value="$(arg chunk)"/>
+        <param name="msg_length" type="double" value="$(arg msg_length)"/>
+    </node>
+
+    <!-- wav -->
+    <node pkg="recorder" type="wav.py" name="wav_node" output="screen">
+    </node>
+
+
+
+</launch>
