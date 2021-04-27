@@ -8,7 +8,7 @@
     <arg name="msg_length" default="1.0"/>
     <arg name="fft_chunk" default="1024"/>
     <arg name="overlap" default="0.9"/>
-    <arg name="path" default="/root/vnc-bionic/catkin_ws/src/recorder/wavefile/"/>
+    <arg name="path" default="/root/arm64-nvidia/catkin_ws/src/recorder/wavefile/"/>
 
     <!-- Focusrite -->
     <node pkg="recorder" type="audio.py" name="recorder_node" output="screen">
