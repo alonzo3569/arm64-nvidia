@@ -1,3 +1,0 @@
-<launch>
-<rosparam command="load" file="$(find get_sound_data)/config/recorder_params_for2i2.yaml"/>
-</launch>

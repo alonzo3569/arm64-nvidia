@@ -1,9 +1,0 @@
-<launch>
-    <!-- Setup file -->
-    <arg name="yaml_file" default="recorder_params"/>
-
-    <!-- get_sound_data -->
-    <node name="get_sound_data" pkg="get_sound_data" type="get_sound_data" output="screen" clear_params="true" required="true">
-    	<rosparam command="load" file="$(find get_sound_data)/config/$(arg yaml_file).yaml" />
-    </node>
-</launch>

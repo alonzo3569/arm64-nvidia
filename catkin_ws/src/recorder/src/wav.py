@@ -7,6 +7,8 @@ from struct import pack
 from ntu_msgs.msg import HydrophoneData
 from std_msgs.msg import Int64
 from std_srvs.srv import SetBool
+import os
+import time
 
 
 class Wav:
@@ -16,9 +18,17 @@ class Wav:
         # OnstartUp
         self.channels = rospy.get_param('~channels', 2)
         self.rate = rospy.get_param('~rate', 192000)
+        self.path = rospy.get_param('~path', "/root/vnc-bionic/catkin_ws/src/recorder/wavefile/")
 
-        # Initialize wav 
-        self.wav = wave.open("voice_test.wav", 'wb')
+        # Initialize wav
+        try:
+            os.mkdir(self.path)
+
+        except OSError:
+            print "Wavefile directory already exist!"
+
+        self.filename = time.strftime("%Y%m%d-%H%M%S")
+        self.wav = wave.open(self.path + self.filename + '.wav', 'wb')
         self.wav.setnchannels(self.channels)
         self.wav.setsampwidth(4) # 4 byte for 32 bits
         self.wav.setframerate(self.rate)

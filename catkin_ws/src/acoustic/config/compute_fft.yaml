@@ -1,6 +1,0 @@
-## config file for /acoustic/compute_fft node ##
-## written by Shane
-
-WINDOW_LENGTH_: 1024
-WINDOW_TYPE_: 0 #{0:"hanning", 1:"hamming", 2:"blackman"}
-OVERLAP_: 0.9

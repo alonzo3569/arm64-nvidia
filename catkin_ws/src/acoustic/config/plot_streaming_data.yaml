@@ -1,6 +1,0 @@
-## config file for /acoustic/plot_streaming_data node ##
-## written by Shane
-
-PLOT_: 0  #{0:"both time series & stft plots", 1:"only time series plot", 2:"only stft plot"
-PLOT_LENGTH_: 1  #(sec)
-FPS_: 5 #(Hz)

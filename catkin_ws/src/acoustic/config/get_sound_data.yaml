@@ -1,7 +1,0 @@
-DEVICE_NAME            : "Focusrite Scarlett 4i4"
-pcm_id                 : "hw:0,0"
-pcm_frames             : 50
-pcm_sampleRate         : 96000
-pcm_available_channels : 2
-pcm_bits               : 32    
-msg_length_            : 0.1

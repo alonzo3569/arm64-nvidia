@@ -17,8 +17,8 @@ class Recorder:
 
             # OnstartUp
             self.format = rospy.get_param('~format', pyaudio.paInt32)
-            self.channels = rospy.get_param('~channels', 2)
-            self.rate = rospy.get_param('~rate', 192000)
+            self.channels = rospy.get_param('~channels', 2) 
+            self.rate = rospy.get_param('~rate', 192000) 
             self.chunk = rospy.get_param('~chunk', 19200)
             self.msg_length = rospy.get_param('~msg_length', 1.0)
             print "Set Format   : ", str(self.format), type(self.format)
@@ -28,6 +28,7 @@ class Recorder:
             print "Set Msg length : ", self.msg_length, type(self.msg_length)
 
             # Initialize pyaudio
+            # Device id : 0(xps), 6(focusrite)
             p = pyaudio.PyAudio()
             self.stream = p.open(format=self.format,
                             channels=self.channels,
@@ -47,7 +48,7 @@ class Recorder:
             while not rospy.is_shutdown():
                 # Read data stream, if chunk size is too small, data will be overwrite by new data
                 # type(data) : str
-                data = self.stream.read(self.chunk)
+                data = self.stream.read(self.chunk, exception_on_overflow = False)
 
                 # Convert string to numpy array
                 # data array element type : int32
