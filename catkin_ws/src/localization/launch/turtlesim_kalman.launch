@@ -1,0 +1,10 @@
+<launch>
+
+    <node pkg="localization" type="turtlesim_kalman.py" name="kalman" respawn="false" output="screen" />
+
+    <node pkg="turtlesim" type="turtlesim_node" name="turtlesim" respawn="false" output="screen" />
+
+    <node pkg="turtlesim" type="turtle_teleop_key" name="turtlesim_key" respawn="false" output="screen" />
+
+</launch>
+
