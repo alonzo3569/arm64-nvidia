@@ -1,0 +1,16 @@
+<launch>
+	<arg name="latitude" default="25.014855"/>
+	<arg name="longitude" default="121.53578"/>
+
+    <node pkg="localization" type="localization_kalman.py" name="localization" respawn="false" output="screen">
+        <param name="latitude" value="$(arg latitude)"/>
+        <param name="longitude" value="$(arg longitude)"/>
+    </node>
+
+    <node pkg="localization" type="To_moosrosbridge" name="To_moosrosbridge" respawn="false" output="screen" />
+
+    <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
+        args="$(find localization)/config/test.xml $(find localization)/config/test.moos" 
+        respawn="false" output="screen" />
+
+</launch>

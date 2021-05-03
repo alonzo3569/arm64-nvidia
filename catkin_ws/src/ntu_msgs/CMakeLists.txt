@@ -54,6 +54,7 @@ add_message_files(
    HydrophoneData.msg
    HydrophoneFFTData.msg
    Kalman.msg
+   RobotStatus.msg
  )
 
 ## Generate services in the 'srv' folder

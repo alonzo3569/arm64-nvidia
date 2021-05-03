@@ -31,7 +31,7 @@ ProcessConfig = ANTLER
   //Run = pPoseKeeping	  @ NewConsole = false
   //Run = pPoseKeepingX	  @ NewConsole = false
   Run = MOOS_ROS_BRIDGE   @ NewConsole = false
-  Run = pThrustControl    @ NewConsole = false
+  //Run = pThrustControl    @ NewConsole = false
 }
 
 //------------------------------------------
@@ -133,7 +133,7 @@ ProcessConfig = pMarineViewer
   AppTick    = 4
   CommsTick  = 4
 
-  tiff_file            = ntu_dorm.tif 
+  tiff_file            = NTU_dorm.tif 
   set_pan_x            = -90
   set_pan_y            = -280
   zoom                 = 0.65

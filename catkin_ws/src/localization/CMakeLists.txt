@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  ntu_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -134,6 +135,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(Localization src/localization.cpp)
+add_executable(To_moosrosbridge src/to_moosrosbridge.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -149,7 +151,9 @@ add_executable(Localization src/localization.cpp)
 target_link_libraries(Localization
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(To_moosrosbridge
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############
