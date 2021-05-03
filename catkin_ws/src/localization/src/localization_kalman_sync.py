@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
 Title : Locailization by gps and imu (kalman filter)
-Author: logan zhang, tony hsiao                                                            
+Author: logan zhang                                                            
 '''
 import rospy
 import math
