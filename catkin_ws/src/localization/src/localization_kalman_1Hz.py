@@ -26,7 +26,6 @@ class Locailization(object):
         self.acc_x = 0.0
         self.acc_y = 0.0
         self.status = RobotStatus()
-        self.gps_update = False
         self.gps_covariance = 0.0
         self.imu_covariance = 0.0
 
@@ -61,8 +60,7 @@ class Locailization(object):
         utm_point = fromLatLong(msg.latitude, msg.longitude)
         self.x = utm_point.easting - self.utm_orig.easting
         self.y = utm_point.northing - self.utm_orig.northing
-        self.gps_covariance = msg.position_covariance[0] 
-        self.gps_update = True
+        self.gps_covariance = msg.position_covariance[0]
 
     def cb_imu(self, msg):
         quaternion = (
@@ -78,7 +76,7 @@ class Locailization(object):
         yaw = math.degrees(yaw)
         yaw = self.toMoosAngle(yaw)
         self.status.heading = yaw
-        #print"MOOS heading : ", yaw
+        print"MOOS heading : ", yaw
 
         # Acc in heading direction to local coordinate ax, ay
         self.acc_x = 0*(- msg.linear_acceleration.x) * math.sin(math.radians(yaw))
@@ -124,24 +122,21 @@ class Locailization(object):
         # Measurement Update (Correction)
         # ===============================
         # Compute the Kalman Gain
-        if self.gps_update == True:
-            S = self.H*self.P*self.H.T + self.R
-            K = (self.P*self.H.T) * np.linalg.pinv(S)
+        S = self.H*self.P*self.H.T + self.R
+        K = (self.P*self.H.T) * np.linalg.pinv(S)
 
 
-            # Update the estimate via z
-            self.Z = self.Z[:,np.newaxis]
-            y = self.Z - (self.H*self.X)        # Innovation or Residual
-            self.X = self.X + (K*y)
+        # Update the estimate via z
+        self.Z = self.Z[:,np.newaxis]
+        y = self.Z - (self.H*self.X)        # Innovation or Residual
+        self.X = self.X + (K*y)
 
-            # Update the error covariance
-            self.P = (self.I - (K*self.H))*self.P
+        # Update the error covariance
+        self.P = (self.I - (K*self.H))*self.P
 
-            # Save states (for Plotting)
-            self.status.local_x = self.X[0]
-            self.status.local_y = self.X[1]
-            self.gps_update = False
-            print"Update Measurement"
+        # Save states (for Plotting)
+        self.status.local_x = self.X[0]
+        self.status.local_y = self.X[1]
 
     def toMoosAngle(self, theta):
         if theta < 0.0:
