@@ -10,7 +10,7 @@
     <node pkg="localization" type="To_moosrosbridge" name="To_moosrosbridge" respawn="false" output="screen" />
 
     <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
-        args="$(find localization)/config/test.xml $(find localization)/config/test.moos" 
+        args="$(find localization)/config/duckieboat_bridge_params.xml $(find localization)/config/test.moos" 
         respawn="false" output="screen" />
 
 </launch>
