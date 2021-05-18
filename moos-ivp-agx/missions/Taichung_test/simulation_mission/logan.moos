@@ -10,7 +10,7 @@ MOOSTimeWarp = $(WARP)
 
 // MIT Sailing Pavilion (use this one)
  LatOrigin  = 24.173425  
- LongOrigin = -120.692385
+ LongOrigin = 120.692385
 
 //------------------------------------------
 // Antler configuration  block

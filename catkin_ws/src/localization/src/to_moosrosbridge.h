@@ -8,6 +8,7 @@ class ToMoosRosBridge
 {
     private:
 	// Data
+	std::string m_vehicle;
 
 	// Publisher
         ros::Publisher pub_NavX;
@@ -23,8 +24,8 @@ class ToMoosRosBridge
 
     public:
 	// Data
-	ros::NodeHandle m_nh; // for timer in main
-	
+	ros::NodeHandle m_nh; 
+
 	// Method
         ToMoosRosBridge();
         ~ToMoosRosBridge();

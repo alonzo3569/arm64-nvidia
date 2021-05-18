@@ -1,7 +1,7 @@
 lat_north = 24.18157
 lat_south = 24.16528
-lon_east  = -120.70800
-lon_west  = -120.67677
+lon_east  = 120.70800
+lon_west  = 120.67677
 datum_lat = 24.173425
-datum_lon = -120.692385
+datum_lon = 120.692385
 //datum = (north + south)/2

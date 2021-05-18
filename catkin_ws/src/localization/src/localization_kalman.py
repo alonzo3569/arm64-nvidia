@@ -46,6 +46,7 @@ class Locailization(object):
 
 
         # Onstartup
+        self.vehicle = rospy.get_param('~vehicle', "NaN")  # (0,0) in moos
         self.lat_orig = rospy.get_param('~latitude', 0.0)  # (0,0) in moos
         self.long_orig = rospy.get_param('~longitude', 0.0)
         self.utm_orig = fromLatLong(self.lat_orig, self.long_orig)
@@ -54,8 +55,10 @@ class Locailization(object):
         self.pub = rospy.Publisher("robot_status", RobotStatus, queue_size=1);
 
         #Subscriber
-        imu_sub = rospy.Subscriber("/imu", Imu, self.cb_imu)
-        gps_sub = rospy.Subscriber("/fix", NavSatFix, self.cb_gps)
+        #imu_sub = rospy.Subscriber("/" + self.vehicle + "/imu", Imu, self.cb_imu)
+        #gps_sub = rospy.Subscriber("/" + self.vehicle + "/fix", NavSatFix, self.cb_gps)
+        imu_sub = rospy.Subscriber("imu", Imu, self.cb_imu)
+        gps_sub = rospy.Subscriber("fix", NavSatFix, self.cb_gps)
 
     def cb_gps(self, msg):
         utm_point = fromLatLong(msg.latitude, msg.longitude)

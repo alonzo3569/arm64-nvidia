@@ -1,8 +1,20 @@
 #include "to_moosrosbridge.h"
+#include "ntu_msgs/RobotStatus.h"
 using namespace std;
+
+    
 
 // Constructor
 ToMoosRosBridge::ToMoosRosBridge(){
+
+    //OnstartUp
+    string key;
+    if(ros::param::search("vehicle", key)){
+        ros::param::get(key, m_vehicle);
+    }
+    else{
+        m_vehicle = "NaN";
+    }
 
     // Publisher
     pub_NavX = m_nh.advertise<std_msgs::Float64>("NAV_X", 10);
@@ -13,8 +25,8 @@ ToMoosRosBridge::ToMoosRosBridge(){
     pub_NavHdg = m_nh.advertise<std_msgs::Float64>("NAV_HEADING", 10);
 
     // Subscriber
-    sub_gps = m_nh.subscribe("/fix", 1000, &ToMoosRosBridge::callback_gps, this);
-    sub_robot_status = m_nh.subscribe("/robot_status", 1000, &ToMoosRosBridge::callback_robot_status, this);
+    sub_gps = m_nh.subscribe("fix", 1000, &ToMoosRosBridge::callback_gps, this);
+    sub_robot_status = m_nh.subscribe("robot_status", 1000, &ToMoosRosBridge::callback_robot_status, this);
 }
 
 // Destructor
