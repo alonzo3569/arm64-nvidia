@@ -18,6 +18,8 @@ ADD_SUBDIRECTORY(lib_behaviors-alonzo)
 ADD_SUBDIRECTORY(pPoseKeepingX)
 ADD_SUBDIRECTORY(uSimMarineX_HWGR)
 ADD_SUBDIRECTORY(pThrustControl)
+ADD_SUBDIRECTORY(pHelmIvP_IMU)
+ADD_SUBDIRECTORY(pNodeReporter_IMU)
 
 ##############################################################################
 #                           END of CMakeLists.txt

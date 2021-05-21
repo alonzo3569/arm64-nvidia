@@ -9,8 +9,8 @@ Community    = $(SNAME)
 MOOSTimeWarp = $(WARP)
 
 // MIT Sailing Pavilion (use this one)
- LatOrigin  = 42.358456 
- LongOrigin = -71.087589
+ LatOrigin  = 24.173425 
+ LongOrigin = 120.692385
 
 //------------------------------------------
 // Antler configuration  block
@@ -74,7 +74,7 @@ ProcessConfig = pMarineViewer
   AppTick    = 4
   CommsTick  = 4
 
-  tiff_file            = MIT_SP.tif
+  tiff_file            = taichung.tif
 
   set_pan_x            = -90
   set_pan_y            = -280

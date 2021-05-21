@@ -22,10 +22,10 @@ ProcessConfig = ANTLER
   Run = pLogger           @ NewConsole = false
   Run = uSimMarine	  @ NewConsole = false
   Run = pMarinePID        @ NewConsole = false
-  Run = pHelmIvP_IMU	  @ NewConsole = false
+  //Run = pHelmIvP	  @ NewConsole = false
   Run = pMarineViewer	  @ NewConsole = false
   Run = uProcessWatch	  @ NewConsole = false
-  Run = pNodeReporter_IMU	  @ NewConsole = false
+  Run = pNodeReporter	  @ NewConsole = false
   //Run = uTimerScript	  @ NewConsole = false
   Run = uXMS		  @ NewConsole = false
   Run = MOOS_ROS_BRIDGE   @ NewConsole = false
@@ -170,7 +170,7 @@ ProcessConfig = pMarineViewer
 //------------------------------------------
 // pNodeReporter config block
 
-ProcessConfig = pNodeReporter_IMU
+ProcessConfig = pNodeReporter
 {
   AppTick    = 2
   CommsTick	 = 2
@@ -215,7 +215,7 @@ ProcessConfig = pPoseKeeping
 //------------------------------------------
 // pHelmIvP config block
 
-ProcessConfig = pHelmIvP_IMU
+ProcessConfig = pHelmIvP
 {
   AppTick    = 4
   CommsTick  = 4

@@ -6,7 +6,6 @@
     <group ns="$(arg vehicle)">
 
         <node pkg="localization" type="localization_kalman.py" name="localization" respawn="false" output="screen">
-            <param name="vehicle" value="$(arg vehicle)"/>
             <param name="latitude" value="$(arg latitude)"/>
             <param name="longitude" value="$(arg longitude)"/>
         </node>

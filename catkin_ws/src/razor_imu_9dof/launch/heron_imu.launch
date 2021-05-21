@@ -1,0 +1,25 @@
+<launch>
+
+    <!-- Params -->
+    <arg name="vehicle" default="heron"/>
+    <arg name="imu_config_file" default="$(find razor_imu_9dof)/config/my_razor.yaml"/>
+
+    <group ns="$(arg vehicle)">
+
+        <!-- IMU -->
+        <include file="$(find razor_imu_9dof)/launch/razor-pub.launch">
+            <arg name="razor_config_file" value="$(arg imu_config_file)"/>
+        </include>
+
+        <node pkg="localization" type="Heron_heading" name="Heron_heading" respawn="false" output="screen" />
+
+        <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
+            args="$(find localization)/config/heron_bridge_params.xml $(find localization)/config/test.moos"
+            respawn="false" output="screen" >
+            <param name="vehicle" value="$(arg vehicle)"/>
+        </node>
+
+    </group>
+
+
+</launch>

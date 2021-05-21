@@ -8,8 +8,8 @@ Community  = $(VNAME)
 MOOSTimeWarp = $(WARP)
 
 // MIT Sailing Pavilion (use this one)
- LatOrigin  = 42.358456 
- LongOrigin = -71.087589
+ LatOrigin  = 24.173425 
+ LongOrigin = 120.692385
 
 //------------------------------------------------------------
 ProcessConfig = ANTLER
@@ -25,12 +25,6 @@ ProcessConfig = ANTLER
   Run = pHelmIvP           @ NewConsole = false
   Run = pHostInfo          @ NewConsole = false
   Run = uFldNodeBroker     @ NewConsole = false
-#ifdef SIM
-  Run = uSimMarine         @ NewConsole = false
-#else
-  Run = iM200              @ NewConsole = false
-#endif
-  Run = pPoseKeepingX	   @ NewConsole = false
 }
 
 //------------------------------------------
@@ -139,7 +133,6 @@ ProcessConfig = pHelmIvP
 
   behaviors  = meta_vehicle.bhv
   domain     = course:0:359:360
-  domain     = speed:0:4:41
 }
 
 //--------------------------------------------------
@@ -174,69 +167,8 @@ ProcessConfig = uFldNodeBroker
   BRIDGE = src=NODE_MESSAGE_LOCAL, alias=NODE_MESSAGE
 }
 
-//------------------------------------------
-// uSimMarine config block
 
-ProcessConfig = uSimMarine
-{
-  AppTick  	= 4
-  CommsTick	= 4
 
-  start_x       = 0
-  start_y       = -20
-  start_heading = 180
-  start_speed   = 0
 
-  prefix        = NAV
-
-#ifdef SIM
-  //drift_x       = 0.3
-  drift_y       = 0.3
-#else
-#endif
-
-  turn_rate     = 40
-  thrust_map    = 0:0, 20:1, 40:2, 60:3, 80:4, 100:5
-  thrust_reflect = true
-}
-
-//--------------------------------------------------------
-ProcessConfig = iM200
-{
-  AppTick        = 10
-  CommsTick      = 10
-
-  PORT_NUMBER    = 29500
-  IP_ADDRESS     = $(M200_IP)  // Default is 'localhost'
-  GPS_PREFIX     = NAV_        // Prepended to GPS position messages.
-  DIRECT_THRUST  = false       // Default is false.
-                               // When true, vehicle in direct-thrust mode.
-                               // When false, vehicle in rudder-thrust mode.
-
-  HEADING_OFFSET = 0.0         // Offset to add to published heading
-
-	
-  PUBLISH_RAW    = true        // When true, publish all messages from
-                               // front seat to M200_RAW_NMEA
-  MAX_RUDDER     = 100.0        // Rudder value will be capped to this, +/-
-  MAX_THRUST     = 100.0        // Thrust value to each motor will be
-                               // capped to this value, +/-
-}
-
-//------------------------------------------
-// pPoseKeepingX config block
-ProcessConfig = pPoseKeepingX
-{
-  AppTick   = 4                                                 
-  CommsTick = 4
-
-  position  = $(POS)
-  heading   = $(HEADING)
-  Kp        = 1.2
-  Kd        = 0.0
-  Ki        = 0.0
-  tolerance_radius = 5
-  sim = $(SIM_MODE)
-}
 
 

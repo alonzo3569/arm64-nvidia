@@ -136,6 +136,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(Localization src/localization.cpp)
 add_executable(To_moosrosbridge src/to_moosrosbridge.cpp)
+add_executable(Heron_heading src/heron_heading.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -152,6 +153,9 @@ target_link_libraries(Localization
   ${catkin_LIBRARIES}
 )
 target_link_libraries(To_moosrosbridge
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(Heron_heading
   ${catkin_LIBRARIES}
 )
 #############

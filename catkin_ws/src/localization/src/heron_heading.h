@@ -1,0 +1,26 @@
+#include <ros/ros.h>
+#include <std_msgs/Float64.h>
+#include <sensor_msgs/Imu.h>
+
+class Localization
+{
+    private:
+	// Data
+
+        // Publisher
+        ros::Publisher pub_NavHdg;
+
+        // Subscriber
+        ros::Subscriber sub_imu;
+
+    public:
+	// Data
+	ros::NodeHandle m_nh; 
+
+	// Method
+        Localization();
+        ~Localization();
+        void callback_imu(const sensor_msgs::Imu msg);
+	std_msgs::Float64 toRosFloat(double value);
+	std_msgs::Float64 toMoosAngle(double value);
+};
