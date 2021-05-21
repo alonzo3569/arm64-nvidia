@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments
 #-------------------------------------------------------
-SHORE_IP="localhost" #192.168.1.214 #xps ip
+SHORE_IP="192.168.0.167" #192.168.1.214 #xps ip
 SHORE_LISTEN="9300"
 TIME_WARP=1
 VNAME="duckieboat"
@@ -25,7 +25,6 @@ for ARGI; do
         echo "             $0 -kirk -t=$TIME_WARP -p=$POSITION -h=$HEADING"
 	exit 0;
 
-    elif [ "${ARGI}" = "--evan" -o "${ARGI}" = "-e" ] ; then
     elif [ "${ARGI//[^0-9]/}" = "$ARGI" -a "$TIME_WARP" = 1 ]; then 
         TIME_WARP=$ARGI
     elif [ "${ARGI:0:11}" = "--timewarp=" ] ; then

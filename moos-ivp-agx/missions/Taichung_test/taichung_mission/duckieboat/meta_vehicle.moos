@@ -25,6 +25,7 @@ ProcessConfig = ANTLER
   Run = pHelmIvP           @ NewConsole = false
   Run = pHostInfo          @ NewConsole = false
   Run = uFldNodeBroker     @ NewConsole = false
+  Run = MOOS_ROS_BRIDGE    @ NewConsole = false
 }
 
 //------------------------------------------
@@ -168,6 +169,13 @@ ProcessConfig = uFldNodeBroker
 }
 
 
+//------------------------------------------
+// moos_ros_bridge config block
+ProcessConfig = MOOS_ROS_BRIDGE
+{
+  AppTick    = 1
+  CommsTick  = 20
+}
 
 
 
