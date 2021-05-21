@@ -34,7 +34,7 @@ class Recorder:
                             channels=self.channels,
                             rate=self.rate,
                             input=True,
-                            input_device_index=4,
+                            input_device_index=24,
                             frames_per_buffer=self.chunk)
 
             # Initialize msg
