@@ -5,12 +5,12 @@
 
 ServerHost   = localhost
 ServerPort   = 9000
-Community    = logan
-MOOSTimeWarp = 1
+Community    = $(COMMUNITY)
+MOOSTimeWarp = $(WARP)
 
 // MIT Sailing Pavilion (use this one)
- LatOrigin  = 24.173425  
- LongOrigin = 120.692385
+ LatOrigin  = 25.014855
+ LongOrigin = 121.53578
 
 //------------------------------------------
 // Antler configuration  block
@@ -20,15 +20,18 @@ ProcessConfig = ANTLER
 
   Run = MOOSDB            @ NewConsole = false
   Run = pLogger           @ NewConsole = false
-  Run = uSimMarine	  @ NewConsole = false
+  //Run = uSimMarine	  @ NewConsole = false
   Run = pMarinePID        @ NewConsole = false
-  Run = pHelmIvP_IMU	  @ NewConsole = false
+  Run = pHelmIvP	  @ NewConsole = false
   Run = pMarineViewer	  @ NewConsole = false
   Run = uProcessWatch	  @ NewConsole = false
-  Run = pNodeReporter_IMU	  @ NewConsole = false
+  Run = pNodeReporter	  @ NewConsole = false
   //Run = uTimerScript	  @ NewConsole = false
   Run = uXMS		  @ NewConsole = false
+  //Run = pPoseKeeping	  @ NewConsole = false
+  //Run = pPoseKeepingX	  @ NewConsole = false
   Run = MOOS_ROS_BRIDGE   @ NewConsole = false
+  //Run = pThrustControl    @ NewConsole = false
 }
 
 //------------------------------------------
@@ -130,8 +133,7 @@ ProcessConfig = pMarineViewer
   AppTick    = 4
   CommsTick  = 4
 
-  tiff_file            = taichung.tif
-
+  tiff_file            = NTU_dorm.tif 
   set_pan_x            = -90
   set_pan_y            = -280
   zoom                 = 0.65
@@ -170,7 +172,7 @@ ProcessConfig = pMarineViewer
 //------------------------------------------
 // pNodeReporter config block
 
-ProcessConfig = pNodeReporter_IMU
+ProcessConfig = pNodeReporter
 {
   AppTick    = 2
   CommsTick	 = 2
@@ -194,7 +196,7 @@ ProcessConfig = uXMS
 {
   AppTick   = 4                                                 
   CommsTick = 4
-  var = NAV_X,NAV_Y,NAV_HEADING,NAV_SPEED,NAV_SPEED_X,NAV_LONG,NAV_LAT,NODE_REPORT_LOCAL,ROS_THRUST_R,ROS_THRUST_L 
+  var = NAV_X,NAV_Y,NAV_HEADING,NAV_SPEED,NAV_SPEED_X,NAV_LONG,NAV_LAT,NODE_REPORT_LOCAL,ROS_THRUST_R,ROS_THRUST_L,DB_CLIENTS
   //history_var = DESIRED_THRUST_R
 }
 
@@ -205,8 +207,8 @@ ProcessConfig = pPoseKeeping
   AppTick   = 4                                                 
   CommsTick = 4
 
-  position  = 40,-35
-  heading   = 0
+  position  = $(POS)
+  heading   = $(HEADING)
   Kp        = 1.2
   Kd        = 0.0
   Ki        = 0.0
@@ -215,7 +217,7 @@ ProcessConfig = pPoseKeeping
 //------------------------------------------
 // pHelmIvP config block
 
-ProcessConfig = pHelmIvP_IMU
+ProcessConfig = pHelmIvP
 {
   AppTick    = 4
   CommsTick  = 4
@@ -233,8 +235,8 @@ ProcessConfig = pPoseKeepingX
   AppTick   = 4                                                 
   CommsTick = 4
 
-  position  = 40,-35
-  heading   = 0
+  position  = $(POS)
+  heading   = $(HEADING)
   Kp        = 1.2
   Kd        = 0.0
   Ki        = 0.0
@@ -258,4 +260,3 @@ ProcessConfig = pThrustControl
   max_rudder  = 50
   max _thrust = 70 // 70 for vrx simulation
 }
-
