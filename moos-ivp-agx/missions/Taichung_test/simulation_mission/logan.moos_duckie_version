@@ -4,7 +4,7 @@
 //-------------------------------------------------
 
 ServerHost   = localhost
-ServerPort   = 9000
+ServerPort   = 9006
 Community    = $(COMMUNITY)
 MOOSTimeWarp = $(WARP)
 

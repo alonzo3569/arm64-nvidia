@@ -4,7 +4,7 @@
 //-------------------------------------------------
 
 ServerHost   = localhost
-ServerPort   = 9000
+ServerPort   = 9005
 Community    = $(COMMUNITY)
 MOOSTimeWarp = $(WARP)
 
@@ -22,13 +22,14 @@ ProcessConfig = ANTLER
   Run = pLogger           @ NewConsole = false
   Run = uSimMarine	  @ NewConsole = false
   Run = pMarinePID        @ NewConsole = false
-  Run = pHelmIvP_IMU	  @ NewConsole = false
+  Run = pHelmIvP	  @ NewConsole = false
   Run = pMarineViewer	  @ NewConsole = false
   Run = uProcessWatch	  @ NewConsole = false
-  Run = pNodeReporter_IMU	  @ NewConsole = false
+  Run = pNodeReporter	  @ NewConsole = false
   //Run = uTimerScript	  @ NewConsole = false
   Run = uXMS		  @ NewConsole = false
   Run = MOOS_ROS_BRIDGE   @ NewConsole = false
+  Run = pImuHeading       @ NewConsole = false
 }
 
 //------------------------------------------
@@ -170,7 +171,7 @@ ProcessConfig = pMarineViewer
 //------------------------------------------
 // pNodeReporter config block
 
-ProcessConfig = pNodeReporter_IMU
+ProcessConfig = pNodeReporter
 {
   AppTick    = 2
   CommsTick	 = 2
@@ -215,7 +216,7 @@ ProcessConfig = pPoseKeeping
 //------------------------------------------
 // pHelmIvP config block
 
-ProcessConfig = pHelmIvP_IMU
+ProcessConfig = pHelmIvP
 {
   AppTick    = 4
   CommsTick  = 4
@@ -257,4 +258,13 @@ ProcessConfig = pThrustControl
 
   max_rudder  = 50
   max _thrust = 70 // 70 for vrx simulation
+}
+
+//------------------------------------------
+// pImuHeading config block
+
+ProcessConfig = pImuHeading
+{
+  AppTick   = 4
+  CommsTick = 4
 }

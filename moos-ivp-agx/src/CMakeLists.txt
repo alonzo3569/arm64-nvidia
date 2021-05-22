@@ -20,6 +20,7 @@ ADD_SUBDIRECTORY(uSimMarineX_HWGR)
 ADD_SUBDIRECTORY(pThrustControl)
 ADD_SUBDIRECTORY(pHelmIvP_IMU)
 ADD_SUBDIRECTORY(pNodeReporter_IMU)
+ADD_SUBDIRECTORY(pImuHeading)
 
 ##############################################################################
 #                           END of CMakeLists.txt

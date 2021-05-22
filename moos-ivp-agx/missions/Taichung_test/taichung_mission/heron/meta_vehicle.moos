@@ -20,16 +20,16 @@ ProcessConfig = ANTLER
   Run = uProcessWatch      @ NewConsole = false
   Run = pShare             @ NewConsole = false
   Run = pLogger            @ NewConsole = false
-  Run = pNodeReporter      @ NewConsole = false
   Run = pMarinePID         @ NewConsole = false
   Run = pHostInfo          @ NewConsole = false
   Run = uFldNodeBroker     @ NewConsole = false
+  Run = pHelmIvP           @ NewConsole = false
+  Run = pNodeReporter      @ NewConsole = false
+  Run = pImuHeading        @ NewConsole = false
 #ifdef SIM
   Run = uSimMarine         @ NewConsole = false
-  Run = pHelmIvP           @ NewConsole = false
 #else
   Run = iM200              @ NewConsole = false
-  Run = pHelmIvP_IMU       @ NewConsole = false
 #endif
 }
 
@@ -127,6 +127,7 @@ ProcessConfig = pMarinePID
   // Will set DESIRED_THRUST = DESIRED_SPEED * SPEED_FACTOR
   speed_factor = 20
 }
+
 //------------------------------------------
 // pHelmIvP config block
 
@@ -141,7 +142,6 @@ ProcessConfig = pHelmIvP
   domain     = course:0:359:360
   domain     = speed:0:4:41
 }
-
 //--------------------------------------------------
 ProcessConfig = pHostInfo
 {
@@ -225,4 +225,12 @@ ProcessConfig = iM200
 
 
 
+//------------------------------------------
+// pImuHeading
 
+ProcessConfig = pImuHeading
+{
+  AppTick   = 4
+  CommsTick = 4
+
+}

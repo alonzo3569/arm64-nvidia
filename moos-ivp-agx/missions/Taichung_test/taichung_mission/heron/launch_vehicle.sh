@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments
 #-------------------------------------------------------
-SHORE_IP="localhost" #Change here
+SHORE_IP="192.168.0.167" #Change here
 SHORE_LISTEN="9300"
 TIME_WARP=1
 VNAME="heron"

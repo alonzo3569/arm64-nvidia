@@ -130,6 +130,9 @@ ADD_LIBRARY(BHV_Lawnmower SHARED BHV_Lawnmower.cpp)
     mbutil 
     geometry 
     ${SYSTEM_LIBS} )  
+
+
+
 #--------------------------------------------------------
 #                                      rotate_lawnmower
 #--------------------------------------------------------
@@ -146,7 +149,20 @@ ADD_LIBRARY(BHV_rotate_lawnmower SHARED BHV_rotate_lawnmower.cpp)
     ${SYSTEM_LIBS} )  
 
 
-
+#--------------------------------------------------------
+#                                      BHV_Waypoint_IMU
+#--------------------------------------------------------
+#ADD_LIBRARY(BHV_imu_waypt SHARED BHV_imu_waypt.cpp)
+#TARGET_LINK_LIBRARIES(BHV_imu_waypt
+#    helmivp
+#    behaviors
+#    ivpbuild
+#    logic
+#    ivpcore
+#    bhvutil
+#    mbutil
+#    geometry
+#    ${SYSTEM_LIBS} )
 
 
 
