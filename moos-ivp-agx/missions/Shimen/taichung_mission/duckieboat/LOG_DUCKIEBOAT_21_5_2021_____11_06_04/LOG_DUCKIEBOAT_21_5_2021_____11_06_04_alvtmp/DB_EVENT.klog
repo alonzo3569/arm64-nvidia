@@ -1,0 +1,6 @@
+0.706           DB_EVENT             MOOSDB_duckieboat connected=uFldNodeBroker 
+0.706           DB_EVENT             MOOSDB_duckieboat connected=uFldNodeBroker 
+0.706           DB_EVENT             MOOSDB_duckieboat connected=uFldNodeBroker 
+0.706           DB_EVENT             MOOSDB_duckieboat connected=uFldNodeBroker 
+98.999          DB_EVENT             MOOSDB_duckieboat disconnected=uMAC_4278 
+100.120         DB_EVENT             MOOSDB_duckieboat disconnected=MOOS_ROS_BRIDGE 

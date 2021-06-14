@@ -1,0 +1,68 @@
+total_vars=60
+logstart=1621595163.93
+logtmin=0.342
+logtmax=100.720
+vname=duckieboat
+vtype=kayak
+vcolor=yellow
+vlength=4
+var=APPCAST, type=string, srcs=pHelmIvP:pHostInfo:pMarinePID:pNodeReporter:uFldNodeBroker:uProcessWatch
+var=APPCAST_REQ, type=string, srcs=pMarineViewer:uMAC_4278:uMAC_8747
+var=APPCAST_REQ_ALL, type=string, srcs=uMAC_4278
+var=APPCAST_REQ_DUCKIEBOAT, type=string, srcs=uMAC_4278
+var=DB_CLIENTS, type=string, srcs=MOOSDB_duckieboat
+var=DB_EVENT, type=string, srcs=MOOSDB_duckieboat
+var=DB_QOS, type=string, srcs=MOOSDB_duckieboat
+var=DB_TIME, type=double, srcs=MOOSDB_duckieboat
+var=DB_UPTIME, type=double, srcs=MOOSDB_duckieboat
+var=DEPLOY, type=string, srcs=pHelmIvP
+var=DESIRED_HEADING, type=double, srcs=pHelmIvP
+var=DESIRED_RUDDER, type=double, srcs=pMarinePID
+var=DESIRED_THRUST, type=double, srcs=pMarinePID
+var=IVPHELM_ALLSTOP, type=string, srcs=pHelmIvP
+var=IVPHELM_CPU, type=double, srcs=pHelmIvP
+var=IVPHELM_DOMAIN, type=string, srcs=pHelmIvP
+var=IVPHELM_MODESET, type=string, srcs=pHelmIvP
+var=IVPHELM_REGISTER, type=string, srcs=pHelmIvP
+var=IVPHELM_STATE, type=string, srcs=pHelmIvP
+var=LOGGER_DIRECTORY, type=string, srcs=pLogger
+var=MOOS_DEBUG, type=string, srcs=pHelmIvP:pMarinePID
+var=NAV_HEADING, type=double, srcs=MOOS_ROS_BRIDGE
+var=NAV_SPEED, type=double, srcs=MOOS_ROS_BRIDGE
+var=NAV_X, type=double, srcs=MOOS_ROS_BRIDGE
+var=NAV_Y, type=double, srcs=MOOS_ROS_BRIDGE
+var=NODE_BROKER_ACK, type=string, srcs=uFldShoreBroker
+var=NODE_BROKER_PING_0, type=string, srcs=uFldNodeBroker
+var=NODE_REPORT_LOCAL, type=string, srcs=pNodeReporter
+var=NODE_REPORT_LOCAL_FIRST, type=string, srcs=pNodeReporter
+var=PHELMIVP_ITER_GAP, type=double, srcs=pHelmIvP
+var=PHELMIVP_ITER_LEN, type=double, srcs=pHelmIvP
+var=PHELMIVP_PID, type=double, srcs=pHelmIvP
+var=PHI_HOST_INFO, type=string, srcs=pHostInfo
+var=PHI_HOST_IP, type=string, srcs=pHostInfo
+var=PHI_HOST_IP_ALL, type=string, srcs=pHostInfo
+var=PHI_HOST_IP_VERBOSE, type=string, srcs=pHostInfo
+var=PHI_HOST_PORT_DB, type=double, srcs=pHostInfo
+var=PHOSTINFO_ITER_GAP, type=double, srcs=pHostInfo
+var=PHOSTINFO_ITER_LEN, type=double, srcs=pHostInfo
+var=PLOGGER_CMD, type=string, srcs=pHelmIvP
+var=PMARINEPID_ITER_GAP, type=double, srcs=pMarinePID
+var=PMARINEPID_ITER_LEN, type=double, srcs=pMarinePID
+var=PNODEREPORTER_ITER_GAP, type=double, srcs=pNodeReporter
+var=PNODEREPORTER_ITER_LEN, type=double, srcs=pNodeReporter
+var=PNODEREPORTER_PID, type=double, srcs=pNodeReporter
+var=PROC_WATCH_ALL_OK, type=string, srcs=uProcessWatch
+var=PROC_WATCH_EVENT, type=string, srcs=uProcessWatch
+var=PROC_WATCH_FULL_SUMMARY, type=string, srcs=uProcessWatch
+var=PROC_WATCH_SUMMARY, type=string, srcs=uProcessWatch
+var=PROC_WATCH_TIME_WARP, type=double, srcs=uProcessWatch
+var=PSHARE_CMD, type=string, srcs=uFldNodeBroker
+var=PSHARE_INPUT_SUMMARY, type=string, srcs=pShare
+var=PSHARE_OUTPUT_SUMMARY, type=string, srcs=pShare
+var=READY, type=string, srcs=pHelmIvP
+var=RETURN, type=string, srcs=pHelmIvP
+var=UFLDNODEBROKER_ITER_GAP, type=double, srcs=uFldNodeBroker
+var=UFLDNODEBROKER_ITER_LEN, type=double, srcs=uFldNodeBroker
+var=UFLDNODEBROKER_PID, type=double, srcs=uFldNodeBroker
+var=UPROCESSWATCH_ITER_GAP, type=double, srcs=uProcessWatch
+var=UPROCESSWATCH_ITER_LEN, type=double, srcs=uProcessWatch

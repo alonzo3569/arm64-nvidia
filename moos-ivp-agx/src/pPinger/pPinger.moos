@@ -1,0 +1,11 @@
+//------------------------------------------------
+// pPinger config block
+
+ProcessConfig = pPinger
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  // pPinger configuration here
+}
+

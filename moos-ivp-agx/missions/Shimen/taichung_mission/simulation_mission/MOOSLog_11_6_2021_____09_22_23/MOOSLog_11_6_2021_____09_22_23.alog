@@ -1,0 +1,514 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% LOG FILE:       ./MOOSLog_11_6_2021_____09_22_23/MOOSLog_11_6_2021_____09_22_23.alog
+%% FILE OPENED ON  Thu Jan  1 00:00:00 1970
+%% LOGSTART               1623403343.15
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+0.546           PMARINEVIEWER_PID    pMarineViewer   13366.00000  
+0.547           HELM_MAP_CLEAR       pMarineViewer   0.00000      
+0.547           PMV_CONNECT          pMarineViewer   0.00000      
+0.547           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00007      
+0.547           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=1!@#node=shoreside!@#iter=1!@#messages=Tiff File A:       !@Info File A:       !@Tiff File B:       !@Info File B:       !@------------------ !@To0.913           DB_EVENT             MOOSDB_heron    connected=uProcessWatch 
+1.067           MOOS_DEBUG           pMarinePID      ** NEW CONTROLLER GAINS ARE ** 
+1.067           MOOS_DEBUG           pMarinePID      YAW_PID_KP             = 1.200 
+1.067           MOOS_DEBUG           pMarinePID      YAW_PID_KD             = 0.000 
+1.067           MOOS_DEBUG           pMarinePID      YAW_PID_KI             = 0.300 
+1.067           MOOS_DEBUG           pMarinePID      YAW_PID_INTEGRAL_LIMIT = 0.070 
+1.067           MOOS_DEBUG           pMarinePID      MAXRUDDER              = 100.000 
+1.069           MOOS_DEBUG           pMarinePID      SPEED_PID_KP           = 1.000 
+1.070           MOOS_DEBUG           pMarinePID      SPEED_PID_KD           = 0.000 
+1.070           MOOS_DEBUG           pMarinePID      SPEED_PID_KI           = 0.000 
+1.070           MOOS_DEBUG           pMarinePID      SPEED_PID_INTEGRAL_LIMIT = 0.070 
+1.070           MOOS_DEBUG           pMarinePID      MAXTHRUST              = 100.000 
+1.070           DESIRED_RUDDER       pMarinePID      0.00000      
+1.070           DESIRED_THRUST       pMarinePID      0.00000      
+1.113           DB_EVENT             MOOSDB_heron    connected=pNodeReporter 
+1.114           NAV_HEADING          uSimMarine      180.00000    
+1.114           NAV_SPEED            uSimMarine      0.00000      
+1.114           NAV_DEPTH            uSimMarine      0.00000      
+1.114           NAV_PITCH            uSimMarine      0.00000      
+1.114           NAV_YAW              uSimMarine      -3.14159     
+1.276           PLOGGER_CMD          pHelmIvP        COPY_FILE_REQUEST = alpha.bhv 
+1.276           MOOS_DEBUG           pHelmIvP        pHelmIvP AllStop: ManualOverride 
+1.276           DESIRED_SPEED        pHelmIvP        0.00000      
+1.276           DESIRED_HEADING      pHelmIvP        0.00000      
+1.323           DB_EVENT             MOOSDB_heron    connected=uFldNodeBroker 
+1.364           NAV_HEADING          uSimMarine      180.00000    
+1.364           NAV_SPEED            uSimMarine      0.00000      
+1.364           NAV_DEPTH            uSimMarine      0.00000      
+1.364           NAV_PITCH            uSimMarine      0.00000      
+1.364           NAV_YAW              uSimMarine      -3.14159     
+1.521           DB_EVENT             MOOSDB_heron    connected=uXMS_405 
+1.614           NAV_HEADING          uSimMarine      180.00000    
+1.614           NAV_SPEED            uSimMarine      0.00000      
+1.614           NAV_DEPTH            uSimMarine      0.00000      
+1.614           NAV_PITCH            uSimMarine      0.00000      
+1.614           NAV_YAW              uSimMarine      -3.14159     
+1.723           DB_EVENT             MOOSDB_heron    connected=pImuHeading 
+0.657           LOGGER_DIRECTORY     pLogger         ./MOOSLog_11_6_2021_____09_22_23 
+0.864           USM_FSUMMARY         uSimMarine      ang=0, mag=0.3, xmag=0, ymag=0.3 
+0.864           USM_DRIFT_SUMMARY    uSimMarine      ang=0, mag=0.3, xmag=0, ymag=0.3 
+1.070           DESIRED_RUDDER       pMarinePID      0.00000      
+1.070           DESIRED_THRUST       pMarinePID      0.00000      
+1.268           PHELMIVP_PID         pHelmIvP        13428.00000  
+1.275           DEPLOY               pHelmIvP:HELM_VAR_INIT false 
+1.275           RETURN               pHelmIvP:HELM_VAR_INIT false 
+1.275           READY                pHelmIvP:HELM_VAR_INIT false 
+1.276           IVPHELM_REGISTER     pHelmIvP        SPEED_UPDATE 
+1.276           PLOGGER_CMD          pHelmIvP        COPY_FILE_REQUEST = alpha.bhv 
+1.276           IVPHELM_DOMAIN       pHelmIvP        speed,0,4,41:course,0,359,360 
+1.276           IVPHELM_MODESET      pHelmIvP         
+1.276           MOOS_DEBUG           pHelmIvP        pHelmIvP AllStop: ManualOverride 
+1.276           IVPHELM_ALLSTOP      pHelmIvP        ManualOverride 
+1.276           DESIRED_SPEED        pHelmIvP        0.00000      
+1.276           DESIRED_HEADING      pHelmIvP        0.00000      
+1.461           PROC_WATCH_TIME_WARP uProcessWatch   1.00000      
+1.462           PROC_WATCH_EVENT     uProcessWatch   Noted to be present: [pLogger] 
+1.665           PNODEREPORTER_PID    pNodeReporter   13468.00000  
+1.666           NODE_REPORT_LOCAL_FIRST pNodeReporter   NAME=heron,X=0,Y=-44.77,SPD=0,HDG=180,DEP=0,LAT=24.80794776,LON=121.24968516,TYPE=kayak,COLOR=yellow,MODE=PARK,ALLSTOP=ManualOverride,YAW=-1.5707963,TIME=1623403344.61,LENGTH=4 
+1.666           NODE_REPORT_LOCAL    pNodeReporter   NAME=heron,X=0,Y=-44.77,SPD=0,HDG=180,DEP=0,LAT=24.80794776,LON=121.24968516,TYPE=kayak,COLOR=yellow,MODE=PARK,ALLSTOP=ManualOverride,YAW=-1.5707963,TIME=1623403344.61,LENGTH=4 
+1.666           PNODEREPORTER_ITER_LEN pNodeReporter   0.00013      
+1.714           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00457      
+1.714           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00012      
+1.723           DB_EVENT             MOOSDB_heron    connected=pImuHeading 
+1.777           PHELMIVP_ITER_GAP    pHelmIvP        1.00220      
+1.777           IVPHELM_CPU          pHelmIvP        2.39923      
+1.777           IVPHELM_STATE        pHelmIvP        PARK 
+1.777           PHELMIVP_ITER_LEN    pHelmIvP        0.00018      
+1.791           DB_TIME              MOOSDB_heron    1623403344.73306 
+1.791           DB_TIME              MOOSDB_heron    1623403344.73306 
+1.791           DB_UPTIME            MOOSDB_heron    1.99465      
+1.791           DB_UPTIME            MOOSDB_heron    1.99465      
+1.791           DB_CLIENTS           MOOSDB_heron    pImuHeading,uXMS_405,uFldNodeBroker,pNodeReporter,uProcessWatch,pHelmIvP,pMarinePID,uSimMarine,pLogger, 
+1.791           DB_CLIENTS           MOOSDB_heron    pImuHeading,uXMS_405,uFldNodeBroker,pNodeReporter,uProcessWatch,pHelmIvP,pMarinePID,uSimMarine,pLogger, 
+1.795           DB_QOS               MOOSDB_heron    pHelmIvP=0:0.429869:0.29707:0,pImuHeading=0:0.360012:0.360012:0,pLogger=0:0.346899:0.193119:0,pMarinePID=0:0.512123:0.373125:0,pNodeReporter=0:0.402927:0.402927:0,uFldNodeBroker=0:0.228882:0.228882:0,uProcessWatch=0:0.433922:0.433922:0,uSimMarine=0:0.512123:0.405073:0,uXMS_405=0:0.345945:0.345945:0, 
+1.795           DB_QOS               MOOSDB_heron    pHelmIvP=0:0.429869:0.29707:0,pImuHeading=0:0.360012:0.360012:0,pLogger=0:0.346899:0.193119:0,pMarinePID=0:0.512123:0.373125:0,pNodeReporter=0:0.402927:0.402927:0,uFldNodeBroker=0:0.228882:0.228882:0,uProcessWatch=0:0.433922:0.433922:0,uSimMarine=0:0.512123:0.405073:0,uXMS_405=0:0.345945:0.345945:0, 
+1.865           NAV_HEADING          uSimMarine      180.00000    
+1.865           NAV_SPEED            uSimMarine      0.00000      
+1.865           NAV_DEPTH            uSimMarine      0.00000      
+1.865           NAV_PITCH            uSimMarine      0.00000      
+1.865           NAV_YAW              uSimMarine      -3.14159     
+1.865           NAV_DEPTH            uSimMarine      0.00000      
+1.865           NAV_HEADING          uSimMarine      180.00000    
+1.865           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+1.865           NAV_LAT              uSimMarine      24.80795     
+1.865           NAV_LONG             uSimMarine      121.24969    
+1.865           NAV_PITCH            uSimMarine      0.00000      
+1.865           NAV_SPEED            uSimMarine      0.00000      
+1.865           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+1.865           NAV_X                uSimMarine      0.00000      
+1.865           NAV_Y                uSimMarine      -44.69906    
+1.865           NAV_YAW              uSimMarine      -3.14159     
+1.865           NAV_Z                uSimMarine      -0.1.713           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+1.714           DB_TIME              MOOSDB_shoreside 1623403344.85958 
+1.714           DB_UPTIME            MOOSDB_shoreside 2.12147      
+1.714           DB_CLIENTS           MOOSDB_shoreside pPinger,uFldShoreBroker,pHostInfo,pShare,pLogger,pMarineViewer,uMAC_3749, 
+1.716           DB_QOS               MOOSDB_shoreside pHostInfo=0:0.644922:0.644922:0,pLogger=0:0.310898:0.253916:0,pMarineViewer=0:3.57604:0.544071:0,pPinger=0:0.216007:0.216007:0,pShare=0:0.446796:0.446796:0,uFldShoreBroker=0:0.347137:0.347137:0,uMAC_3749=0:0.608921:0.389099:0, 
+0.546           PMARINEVIEWER_PID    pMarineViewer   13366.00000  
+0.547           HELM_MAP_CLEAR       pMarineViewer   0.00000      
+0.547           PMV_CONNECT          pMarineViewer   0.00000      
+0.650           APPCAST_REQ_SHORESIDE uMAC_3749       node=shoreside,app=all,duration=0.1,key=uMAC_3749startup,thresh=any 
+0.659           LOGGER_DIRECTORY     pLogger         ./MOOSLog_11_6_2021_____09_22_23 
+0.798           REGION_INFO          pMarineViewer   lat_datum=24.808352, lon_datum=121.249679, img_file=/root/moos-ivp/ivp/data/shimen.tif, zoom=0.65, pan_x=-90, pan_y=-280 
+0.911           DB_EVENT             MOOSDB_shoreside connected=pPinger 
+1.053           PHI_HOST_IP          pHostInfo       localhost 
+1.053           PHI_HOST_IP_ALL      pHostInfo       localhost 
+1.053           PHI_HOST_IP_VERBOSE  pHostInfo       USER_HARD_CONFIGURED=localhost 
+1.053           PHI_HOST_PORT_DB     pHostInfo       9000 
+1.053           PHI_HOST_INFO        pHostInfo       community=shoreside,hostip=localhost,port_db=9000,hostip_alts=,timewarp=1 
+1.053           PHOSTINFO_ITER_LEN   pHostInfo       0.00009      
+1.263           UFLDSHOREBROKER_ITER_LEN uFldShoreBroker 0.00001      
+1.463           VIEW_RANGE_PULSE     pPinger         x=0,y=0,radius=20,fill=0.25,label=bhv_pulse,edge_color=yellow,fill_color=yellow,duration=4,edge_size=1 
+1.549           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=5!@#node=shoreside!@#iter=5!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   0!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     5!@PMV Iterations:    4!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       8!@Draw Count Rate:  8.94979!@Curr Time:        1623403344.44!@Time Warp:        1.000!@Stale report thresh: 60!@Stal2.074           APPCAST              uXMS_405        proc=uXMS_405!@#iter=1!@#node=heron!@#iter=1!@#messages=VarName            (S)  (T)  (C)  VarValue (SCOPING:[7;32mEVENTS[0m)!@-----------------  ---  ---  ---  -------------------------!@NAV_HEADING                       n/a!@NAV_LAT                           n/a!@NAV_LONG                          n/a!@NAV_SPEED                         n/a!@NAV_SPEED_X                       n/a!@NAV_X                             n/a!@NAV_Y                             n/a!@NODE_REPORT_LOCAL                 n/a!@ROS_THRUST_L                      n/a!@ROS_THRUST_R                      n/a!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.074           PMARINEPID_ITER_GAP  pMarinePID      1.00340      
+2.074           PMARINEPID_ITER_LEN  pMarinePID      0.00116      
+2.115           NAV_X                uSimMarine      0.00000      
+2.115           NAV_Y                uSimMarine      -44.62395    
+2.115           NAV_LAT              uSimMarine      24.80795     
+2.115           NAV_LONG             uSimMarine      121.24969    
+2.115           NAV_HEADING          uSimMarine      180.00000    
+2.115           NAV_SPEED            uSimMarine      0.00000      
+2.115           NAV_DEPTH            uSimMarine      0.00000      
+2.115           SIMULATION_MODE      uSimMarine      TRUE 
+2.115           NAV_Z                uSimMarine      -0.00000     
+2.115           NAV_PITCH            uSimMarine      0.00000      
+2.115           NAV_YAW              uSimMarine      -3.14159     
+2.115           TRUE_X               uSimMarine      0.00000      
+2.115           TRUE_Y               uSimMarine      -44.62395    
+2.115           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+2.115           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+2.115           USIMMARINE_ITER_GAP  uSimMarine    1.964           PPINGER_ITER_GAP     pPinger         1.00110      
+1.964           VIEW_RANGE_PULSE     pPinger         x=0,y=0,radius=20,fill=0.25,label=bhv_pulse,edge_color=yellow,fill_color=yellow,duration=4,edge_s2.167           NODE_REPORT_LOCAL    pNodeReporter   NAME=heron,X=0,Y=-44.62,SPD=0,HDG=180,DEP=0,LAT=24.80794912,LON=121.24968514,TYPE=kayak,COLOR=yellow,MODE=PARK,ALLSTOP=ManualOverride,INDEX=1,YAW=-1.5707963,TIME=1623403345.11,LENGTH=4 
+2.167           PNODEREPORTER_ITER_LEN pNodeReporter   0.00031      
+2.175           PMARINEPID_ITER_GAP  pMarinePID      1.00312      
+2.175           PMARINEPID_ITER_LEN  pMarinePID      0.00114      
+2.214           UPROCESSWATCH_ITER_GAP uProcessWatch   2.050           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00118      
+2.050           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00012      
+2.050           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=7!@#node=shoreside!@#iter=7!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     7!@PMV Iterations:    6!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       12!@Draw Count Rate:  8.60409!@Curr Time:        1623403344.95!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00010!@CmdFolio size:    0!@!@V2.325           PMARINEPID_ITER_GAP  pMarinePID      1.00408      
+2.325           PMARINEPID_ITER_LEN  pMarinePID      0.00144      
+2.366           NAV_X                uSimMarine      0.00000      
+2.366           NAV_Y                uSimMarine      -44.54883    
+2.366           NAV_LAT              uSimMarine      24.80795     
+2.366           NAV_LONG             uSimMarine      121.24969    
+2.366           NAV_HEADING          uSimMarine      180.00000    
+2.366           NAV_SPEED            uSimMarine      0.00000      
+2.366           NAV_DEPTH            uSimMarine      0.00000      
+2.366           SIMULATION_MODE      uSimMarine      TRUE 
+2.366           NAV_Z                uSimMarine      -0.00000     
+2.366           NAV_PITCH            uSimMarine      0.00000      
+2.366           NAV_YAW              uSimMarine      -3.14159     
+2.366           TRUE_X               uSimMarine      0.00000      
+2.366           TRUE_Y               uSimMarine      -44.54883    
+2.366           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+2.366           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+2.366           USIMMARINE_ITER_GAP  uSimMarine      1.00151      
+2.366           USIMMARINE_ITER_LEN  uSimMarine      0.002.214           PPINGER_ITER_GAP     pPinger         1.00291      
+2.214           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,ver2.426           PMARINEPID_ITER_GAP  pMarinePID      1.00432      
+2.426           PMARINEPID_ITER_LEN  pMarinePID      0.00136      
+2.465           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00127      
+2.465           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00021      
+2.476           PMARINEPID_ITER_GAP  pMarinePID      1.00348      
+2.476           PMARINEPID_ITER_LEN  pMarinePID      0.00206      
+2.526           PMARINEPID_ITER_GAP  pMarinePID      1.00520      
+2.526           PMARINEPID_ITER_LEN  pMarinePID      0.00138      
+2.528           PHELMIVP_ITER_GAP    pHelmIvP        1.00126      
+2.528           IVPHELM_CPU          pHelmIvP        0.79966      
+2.528           IVPHELM_STATE        pHelmIvP        PARK 
+2.528           PHELMIVP_ITER_LEN    pHelmIvP        0.00018      
+2.576           PMARINEPID_ITER_GAP  pMarinePID      1.00358      
+2.576           PMARINEPID_ITER_LEN  pMarinePID      0.00112      
+2.616           NAV_X                uSimMarine      0.00000      
+2.616           NAV_Y                uSimMarine      -44.47373    
+2.616           NAV_LAT              uSimMarine      24.80795     
+2.616           NAV_LONG             uSimMarine      121.24969    
+2.616           NAV_HEADING          uSimMarine      180.00000    
+2.616           NAV_SPEED            uSimMarine      0.00000      
+2.616           NAV_DEPTH            uSimMarine      0.00000      
+2.616           SIMULATION_MODE      uSimMarine      TRUE2.465           PPINGER_ITER_GAP     pPinger         1.00125      
+2.465           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+2.465           PPINGER_ITER_LEN     pPinger         0.00044      
+2.465           APPCAST              pPinger         proc=pPinger!@#iter=5!@#node=shoreside!@#iter=5!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.551           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00217      
+2.551           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00007      
+2.551           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=9!@#node=shoreside!@#iter=9!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     9!@PMV Iterations:    8!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       16!@Draw Count Rate:  8.43973!@Curr Time:        1623403345.70!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00008!@CmdFolio size:    0!@!@Visual Settings: !@  window pan_x:  -90.00!@  window pan_y:  -280.00!@  window  zoom:  0.65!@  vehicle zoom:  1.5!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.554           APPCAST_REQ          pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoreside,thresh=any 
+2.554           APPCAST_REQ_ALL      pMarineViewer   node=all,app=all,duration2.827           PMARINEPID_ITER_GAP  pMarinePID      1.00402      
+2.827           PMARINEPID_ITER_LEN  pMarinePID      0.00124      
+2.867           NAV_X                uSimMarine      0.00000      
+2.867           NAV_Y                uSimMarine      -44.39852    
+2.867           NAV2.715           PPINGER_ITER_GAP     pPinger         1.00180      
+2.715           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+2.715           PPINGER_ITER_LEN     pPinger         0.00045      
+2.802           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00206      
+2.802           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00014      
+2.804           APPCAST_REQ          pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+2.805           APPCAST_REQ_SHORESIDE pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+2.805           APPCAST_REQ          pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+2.805           APPCAST_REQ_ALL      pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+2.864           PSHARE_INPUT_SUMMARY pShare          localhost:9300 
+0.546           PMARINEVIEWER_PID    pMarineViewer   13366.00000  
+0.547           HELM_MAP_CLEAR       pMarineViewer   0.00000      
+0.547           PMV_CONNECT          pMarineViewer   0.00000      
+0.659           LOGGER_DIRECTORY     pLogger         ./MOOSLog_11_6_2021_____09_22_23 
+0.798           REGION_INFO          pMarineViewer   lat_datum=24.808352, lon_datum=121.249679, img_file=/root/moos-ivp/ivp/data/shimen.tif, zoom=0.65, pan_x=-90, pan_y=-280 
+0.911           DB_EVENT             MOOSDB_shoreside connected=pPinger 
+1.053           PHI_HOST_IP          pHostInfo       localhost 
+1.053           PHI_HOST_IP_ALL      pHostInfo       localhost 
+1.053           PHI_HOST_IP_VERBOSE  pHostInfo       USER_HARD_CONFIGURED=localhost 
+1.053           PHI_HOST_PORT_DB     pHostInfo       9000 
+1.053           PHI_HOST_INFO        pHostInfo       community=shoreside,hostip=localhost,port_db=9000,hostip_alts=,timewarp=1 
+1.714           DB_TIME              MOOSDB_shoreside 1623403344.85958 
+1.714           DB_UPTIME            MOOSDB_shoreside 2.12147      
+1.714           DB_CLIENTS           MOOSDB_shoreside pPinger,uFldShoreBroker,pHostInfo,pShare,pLogger,pMarineViewer,uMAC_3749, 
+1.716           DB_QOS               MOOSDB_shoreside pHostInfo=0:0.644922:0.644922:0,pLogger=0:0.310898:0.253916:0,pMarineViewer=0:3.57604:0.544071:0,pPinger=0:0.216007:0.216007:0,pShare=0:0.446796:0.446796:0,uFldShoreBroker=0:0.347137:0.347137:0,uMAC_3749=0:0.608921:0.389099:0, 
+2.053           PHOSTINFO_ITER_GAP   pHostInfo       0.99966      
+2.053           PHOSTINFO_ITER_LEN   pHostInfo       0.00006      
+2.263           UFLDSHOREBROKER_ITER_GAP uFldShoreBroker 1.00072      
+2.263           UFLDSHOREBROKER_ITER_LEN uFldShoreBroker 0.00003      
+2.802           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00206      
+2.802           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00014      
+2.805           APPCAST_REQ_SHORESIDE pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+2.805           APPCAST_REQ          pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+2.805           APPCAST_REQ_ALL      pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+2.864           PSHARE_OUTPUT_SUMMARY pShare           
+2.864           PSHARE_INPUT_SUMMARY pShare          localhost:9300 
+2.966           PPINGER_ITER_GAP     pPinger         1.00303      
+2.966           PPINGER_ITER_GAP     pPinger         1.00303      
+2.966           VIEW_RANGE_PULSE     pPinger         x=0,y=0,radius=20,fill=0.25,label=bhv_pulse,edge_color=yellow,fill_color=yellow,duration=4,edge_size=1 
+2.966           VIEW_RANGE_PULSE     pPinger         x=0,y=0,radius=20,fill=0.25,label=bhv_pulse,edge_color=yellow,fill_color=yellow,duration=4,edge_size=1 
+2.966           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+2.966           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+2.966           PPINGER_ITER_LEN     pPinger         0.00086      
+2.966           PPINGER_ITER_LEN     pPinger         0.00086      
+2.966           APPCAST              pPinger         proc=pPinger!@#iter=7!@#node=shoreside!@#iter=7!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+2.966           APPCAST              pPinger         proc=pPinger!@#iter=7!@#node=shoreside!@#iter=7!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.052           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00145      
+3.052           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00012      
+3.052           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=11!@#node=shoreside!@#iter=11!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     11!@PMV Iterations:    10!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       20!@Draw Count Rate:  8.3449!@Curr Time:        1623403345.95!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00007!@CmdFolio size:    0!@!@Visual Settings: !@  window pan_x:  -90.00!@  window pan_y:  -280.00!@  window  zoom:  0.65!@  vehicle zoom:  1.5!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.054           PHOSTINFO_ITER_GAP   pHostInfo       1.00062      
+3.054           PHOSTINFO_ITER_LEN   pHostInfo       0.00005      
+3.054           APPCAST              pHostInfo       proc=pHostInfo!@#iter=3!@#node=shoreside!@#iter=3!@#messages=!@  PHI_HOST_IP:          [7;31mDEFAULT HOSTIP FORCED[0m!@  PHI_HOST_IP_ALL:      localhost!@!@  PHI_HOST_IP_VERBOSE:  USER_HARD_CONFIGURED=localhost!@!@  PHI_HOST_PORT:        9000!@  PHI_PSHARES_IROUTES:  localhost:9300!@  HOSTNAME util(Linux): !@  PHI_HOST_INFO:        community=shoreside,hostip=localhost,!@                        port_db=9000,hostip_alts=,timewarp=1!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.216           PPINGER_ITER_GAP     pPinger         1.00211      
+3.216           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+3.216           PPINGER_ITER_LEN     pPinger         0.00075      
+3.256           APPCAST_REQ          uMAC_3749       node=all,app=all,duration=3.0,key=uMAC_3749:app,thresh=run_warning 
+3.257           APPCAST_REQ_ALL      uMAC_3749       node=all,app=all,duration=3.0,key=uMAC_3749:app,thresh=run_warning 
+3.259           DB_EVENT             MOOSDB_shoreside disconnected=uMAC_3749 
+3.264           UFLDSHOREBROKER_ITER_GAP uFldShoreBroker 1.00066      
+3.264           UFLDSHOREBROKER_ITER_LEN uFldShoreBroker 0.00002      
+3.264           APPCAST              uFldShoreBroker proc=uFldShoreBroker!@#iter=3!@#node=shoreside!@#iter=3!@#messages=!@ Total PHI_HOST_INFO    received: 2!@ Total NODE_BROKER_PING received: 0!@ Total NODE_BROKER_ACK    posted: 3!@ Total PSHARE_CMD         posted: 0!@!@===========================================================!@            Shoreside Node(s) Information:!@===========================================================!@!@     Community: shoreside!@        HostIP: localhost!@   Port MOOSDB: 9000!@     Time Warp: 1!@       IRoutes: !@===========================================================!@             Vehicle Node Information:!@===========================================================!@!@Node  IP               Elap  pShare!@Name  Address  Status  Time  Input Route(s)  Skew!@----  -------  ------  ----  --------------  ----!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.303           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00234      
+3.303           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00018      
+3.467           PPINGER_ITER_GAP     pPinger         1.00178      
+3.467           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+3.467           PPINGER_ITER_LEN     pPinger         0.00057      
+3.467           APPCAST              pPinger         proc=pPinger!@#iter=9!@#node=shoreside!@#iter=9!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.553           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00093      
+3.553           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00031      
+3.553           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=13!@#node=shoreside!@#iter=13!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     13!@PMV Iterations:    12!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       24!@Draw Count Rate:  8.28302!@Curr Time:        1623403346.70!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00014!@CmdFolio size:    0!@!@Visual Settings: !@  window pan_x:  -90.00!@  window pan_y:  -280.00!@  window  zoom:  0.65!@  vehicle zoom:  1.5!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+3.717           PPINGER_ITER_GAP     pPinger         1.00158      
+3.717           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+3.717           PPINGER_ITER_LEN     pPinger         0.00060      
+3.718           DB_TIME              MOOSDB_shoreside 1623403346.86346 
+3.718           DB_UPTIME            MOOSDB_shoreside 4.12535      
+3.718           DB_CLIENTS           MOOSDB_shoreside pPinger,uFldShoreBroker,pHostInfo,pShare,pLogger,pMarineViewer, 
+3.720           DB_QOS               MOOSDB_shoreside pHostInfo=0:0.738144:0.384092:0,pLogger=0:0.310898:0.208139:0,pMarineViewer=0:3.57604:0.228167:0,pPinger=0:0.398874:0.216007:0,pShare=0:0.446796:0.177145:0,uFldShoreBroker=0:0.347137:0.188112:0, 
+3.803           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00229      
+3.803           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00018      
+3.806           APPCAST_REQ          pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+3.806           APPCAST_REQ_SHORESIDE pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+3.806           APPCAST_REQ          pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+3.806           APPCAST_REQ_ALL      pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+3.868           PSHARE_OUTPUT_SUMMARY pShare           
+3.868           PSHARE_INPUT_SUMMARY pShare          localhost:9300 
+3.968           PPINGER_ITER_GAP     pPinger         1.00183      
+3.968           VIEW_RANGE_PULSE     pPinger         x=0,y=0,radius=20,fill=0.25,label=bhv_pulse,edge_color=yellow,fill_color=yellow,duration=4,edge_size=1 
+3.968           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+3.968           PPINGER_ITER_LEN     pPinger         0.00324      
+3.969           APPCAST              pPinger         proc=pPinger!@#iter=11!@#node=shoreside!@#iter=11!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.054           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00154      
+4.054           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00011      
+4.054           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=15!@#node=shoreside!@#iter=15!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     15!@PMV Iterations:    14!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       28!@Draw Count Rate:  8.23905!@Curr Time:        1623403346.95!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00011!@CmdFolio size:    0!@!@Visual Settings: !@  window pan_x:  -90.00!@  window pan_y:  -280.00!@  window  zoom:  0.65!@  vehicle zoom:  1.5!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.054           PHOSTINFO_ITER_GAP   pHostInfo       1.00054      
+4.054           PHOSTINFO_ITER_LEN   pHostInfo       0.00002      
+4.054           APPCAST              pHostInfo       proc=pHostInfo!@#iter=4!@#node=shoreside!@#iter=4!@#messages=!@  PHI_HOST_IP:          [7;31mDEFAULT HOSTIP FORCED[0m!@  PHI_HOST_IP_ALL:      localhost!@!@  PHI_HOST_IP_VERBOSE:  USER_HARD_CONFIGURED=localhost!@!@  PHI_HOST_PORT:        9000!@  PHI_PSHARES_IROUTES:  localhost:9300!@  HOSTNAME util(Linux): !@  PHI_HOST_INFO:        community=shoreside,hostip=localhost,!@                        port_db=9000,hostip_alts=,timewarp=1!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.219           PPINGER_ITER_GAP     pPinger         1.00373      
+4.219           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+4.219           PPINGER_ITER_LEN     pPinger         0.00164      
+4.264           UFLDSHOREBROKER_ITER_GAP uFldShoreBroker 1.00042      
+4.264           UFLDSHOREBROKER_ITER_LEN uFldShoreBroker 0.00008      
+4.265           APPCAST              uFldShoreBroker proc=uFldShoreBroker!@#iter=4!@#node=shoreside!@#iter=4!@#messages=!@ Total PHI_HOST_INFO    received: 2!@ Total NODE_BROKER_PING received: 0!@ Total NODE_BROKER_ACK    posted: 4!@ Total PSHARE_CMD         posted: 0!@!@===========================================================!@            Shoreside Node(s) Information:!@===========================================================!@!@     Community: shoreside!@        HostIP: localhost!@   Port MOOSDB: 9000!@     Time Warp: 1!@       IRoutes: !@===========================================================!@             Vehicle Node Information:!@===========================================================!@!@Node  IP               Elap  pShare!@Name  Address  Status  Time  Input Route(s)  Skew!@----  -------  ------  ----  --------------  ----!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.304           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00204      
+4.304           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00015      
+4.469           PPINGER_ITER_GAP     pPinger         1.00212      
+4.469           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+4.469           PPINGER_ITER_LEN     pPinger         0.00094      
+4.470           APPCAST              pPinger         proc=pPinger!@#iter=13!@#node=shoreside!@#iter=13!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.555           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00149      
+4.555           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00006      
+4.555           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=17!@#node=shoreside!@#iter=17!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     17!@PMV Iterations:    16!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       32!@Draw Count Rate:  8.20653!@Curr Time:        1623403347.70!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00009!@CmdFolio size:    0!@!@Visual Settings: !@  window pan_x:  -90.00!@  window pan_y:  -280.00!@  window  zoom:  0.65!@  vehicle zoom:  1.5!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+4.720           PPINGER_ITER_GAP     pPinger         1.00247      
+4.720           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+4.720           PPINGER_ITER_LEN     pPinger         0.00109      
+4.805           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00185      
+4.805           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00026      
+4.807           APPCAST_REQ          pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+4.807           APPCAST_REQ_SHORESIDE pMarineViewer   node=shoreside,app=pMarineViewer,duration=3.0,key=pMarineViewer:shoresideapp,thresh=any 
+4.807           APPCAST_REQ          pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+4.808           APPCAST_REQ_ALL      pMarineViewer   node=all,app=all,duration=3.0,key=pMarineViewer:shoresidegen,thresh=run_warning 
+4.873           PSHARE_OUTPUT_SUMMARY pShare           
+4.873           PSHARE_INPUT_SUMMARY pShare          localhost:9300 
+4.970           PPINGER_ITER_GAP     pPinger         1.00205      
+4.970           VIEW_RANGE_PULSE     pPinger         x=0,y=0,radius=20,fill=0.25,label=bhv_pulse,edge_color=yellow,fill_color=yellow,duration=4,edge_size=1 
+4.971           VIEW_POINT           pPinger         x=0,y=0,label=Pinger,vertex_color=yellow,vertex_size=3 
+4.971           PPINGER_ITER_LEN     pPinger         0.00135      
+4.971           APPCAST              pPinger         proc=pPinger!@#iter=15!@#node=shoreside!@#iter=15!@#messages=pPinger Report!@============================================ !@Alpha  Bravo  Charlie  Delta!@-----  -----  -------  -----!@one    two    three    four!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+5.055           PHOSTINFO_ITER_GAP   pHostInfo       1.00057      
+5.055           PHOSTINFO_ITER_LEN   pHostInfo       0.00001      
+5.055           APPCAST              pHostInfo       proc=pHostInfo!@#iter=5!@#node=shoreside!@#iter=5!@#messages=!@  PHI_HOST_IP:          [7;31mDEFAULT HOSTIP FORCED[0m!@  PHI_HOST_IP_ALL:      localhost!@!@  PHI_HOST_IP_VERBOSE:  USER_HARD_CONFIGURED=localhost!@!@  PHI_HOST_PORT:        9000!@  PHI_PSHARES_IROUTES:  localhost:9300!@  HOSTNAME util(Linux): !@  PHI_HOST_INFO:        community=shoreside,hostip=localhost,!@                        port_db=9000,hostip_alts=,timewarp=1!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+5.055           PMARINEVIEWER_ITER_GAP pMarineViewer   1.00116      
+5.055           PMARINEVIEWER_ITER_LEN pMarineViewer   0.00011      
+5.056           APPCAST              pMarineViewer   proc=pMarineViewer!@#iter=19!@#node=shoreside!@#iter=19!@#messages=Tiff File A:       /root/moos-ivp/ivp/data/shimen.tif!@Info File A:       /root/moos-ivp/ivp/data/shimen.info!@Tiff File B:       !@Info File B:       !@------------------ !@Total GeoShapes:   2!@Clear GeoShapes:   0!@NodeReports Recd:  0!@Node Rpt Rate(R):  0!@Node Rpt Rate(W):  0!@Node Report Vars:  NODE_REPORT_LOCAL,NODE_REPORT!@------------------ !@AC Iterations:     19!@PMV Iterations:    18!@------------------ !@RC Count:          0!@WC Count:          0!@Draw Count:       36!@Draw Count Rate:  8.18166!@Curr Time:        1623403347.95!@Time Warp:        1.000!@Stale report thresh: 60!@Stale remove thresh: 180!@Elapsed:          0.00011!@CmdFolio size:    0!@!@Visual Settings: !@  window pan_x:  -90.00!@  window pan_y:  -280.00!@  window  zoom:  0.65!@  vehicle zoom:  1.5!@!@#!@#events_total=0!@#!@#run_warning_total=0!@# 
+1    
+4.118           NAV_LAT              uSimMarine      24.80795     
+4.118           NAV_LONG             uSimMarine      121.24969    
+4.118           NAV_HEADING          uSimMarine      180.00000    
+4.118           NAV_SPEED            uSimMarine      0.00000      
+4.118           NAV_DEPTH            uSimMarine      0.00000      
+4.118           SIMULATION_MODE      uSimMarine      TRUE 
+4.118           NAV_Z                uSimMarine      -0.00000     
+4.118           NAV_PITCH            uSimMarine      0.00000      
+4.118           NAV_YAW              uSimMarine      -3.14159     
+4.118           TRUE_X               uSimMarine      0.00000      
+4.118           TRUE_Y               uSimMarine      -44.02311    
+4.118           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+4.118           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+4.118           USIMMARINE_ITER_GAP  uSimMarine      1.00100      
+4.118           USIMMARINE_ITER_LEN  uSimMarine      0.00067      
+4.132           PMARINEPID_ITER_GAP  pMarinePID      1.00406      
+4.133           PMARINEPID_ITER_LEN  pMarinePID      0.00186      
+4.169           PNODEREPORTER_ITER_GAP pNodeReporter   1.00084      
+4.169           NODE_REPORT_LOCAL    pNodeReporter   NAME=heron,X=0,Y=-44.02,SPD=0,HDG=180,DEP=0,LAT=24.80795454,LON=121.24968506,TYPE=kayak,COLOR=yellow,MODE=PARK,ALLSTOP=ManualOverride,INDEX=5,YAW=-1.5707963,TIME=1623403347.11,LENGTH=4 
+4.169           PNODEREPORTER_ITER_LEN pNodeReporter   0.00032      
+4.183           PMARINEPID_ITER_GAP  pMarinePID      1.00390      
+4.183           PMARINEPID_ITER_LEN  pMarinePID      0.00112      
+4.217           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00053      
+4.217           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00018      
+4.233           PMARINEPID_ITER_GAP  pMarinePID      1.00326      
+4.233           PMARINEPID_ITER_LEN  pMarinePID      0.00120      
+4.280           UXMS_405_ITER_GAP    uXMS_405        1.00394      
+4.280           PIMUHEADING_ITER_GAP pImuHeading     1.00172      
+4.280           UXMS_405_ITER_LEN    uXMS_405        0.00049      
+4.280           VIEW_VECTOR          pImuHeading     x=0,y=-44.02311,ang=0,mag=5,head_size=2,label=hdg,edge_color=green,vertex_size=5,edge_size=5 
+4.280           PIMUHEADING_ITER_LEN pImuHeading     0.00078      
+4.281           PHELMIVP_ITER_GAP    pHelmIvP        1.00198      
+4.281           IVPHELM_CPU          pHelmIvP        0.79965      
+4.281           IVPHELM_STATE        pHelmIvP        PARK 
+4.281           PHELMIVP_ITER_LEN    pHelmIvP        0.00017      
+4.283           PMARINEPID_ITER_GAP  pMarinePID      1.00440      
+4.283           PMARINEPID_ITER_LEN  pMarinePID      0.00126      
+4.333           PMARINEPID_ITER_GAP  pMarinePID      1.00364      
+4.333           PMARINEPID_ITER_LEN  pMarinePID      0.00138      
+4.368           NAV_X                uSimMarine      0.00000      
+4.368           NAV_Y                uSimMarine      -43.94802    
+4.368           NAV_LAT              uSimMarine      24.80796     
+4.368           NAV_LONG             uSimMarine      121.24969    
+4.368           NAV_HEADING          uSimMarine      180.00000    
+4.368           NAV_SPEED            uSimMarine      0.00000      
+4.368           NAV_DEPTH            uSimMarine      0.00000      
+4.368           SIMULATION_MODE      uSimMarine      TRUE 
+4.368           NAV_Z                uSimMarine      -0.00000     
+4.368           NAV_PITCH            uSimMarine      0.00000      
+4.368           NAV_YAW              uSimMarine      -3.14159     
+4.368           TRUE_X               uSimMarine      0.00000      
+4.368           TRUE_Y               uSimMarine      -43.94802    
+4.368           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+4.368           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+4.368           USIMMARINE_ITER_GAP  uSimMarine      1.00110      
+4.368           USIMMARINE_ITER_LEN  uSimMarine      0.00052      
+4.383           PMARINEPID_ITER_GAP  pMarinePID      1.00446      
+4.383           PMARINEPID_ITER_LEN  pMarinePID      0.00160      
+4.434           PMARINEPID_ITER_GAP  pMarinePID      1.00492      
+4.434           PMARINEPID_ITER_LEN  pMarinePID      0.00200      
+4.468           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00174      
+4.468           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00013      
+4.481           UXMS_405_ITER_GAP    uXMS_405        1.00204      
+4.481           UXMS_405_ITER_LEN    uXMS_405        0.00026      
+4.484           PMARINEPID_ITER_GAP  pMarinePID      1.00418      
+4.484           PMARINEPID_ITER_LEN  pMarinePID      0.00118      
+4.531           PIMUHEADING_ITER_GAP pImuHeading     1.00132      
+4.531           VIEW_VECTOR          pImuHeading     x=0,y=-43.94802,ang=0,mag=5,head_size=2,label=hdg,edge_color=green,vertex_size=5,edge_size=5 
+4.531           PIMUHEADING_ITER_LEN pImuHeading     0.00060      
+4.532           PHELMIVP_ITER_GAP    pHelmIvP        1.00086      
+4.532           IVPHELM_CPU          pHelmIvP        0.79965      
+4.532           IVPHELM_STATE        pHelmIvP        PARK 
+4.532           PHELMIVP_ITER_LEN    pHelmIvP        0.00022      
+4.534           PMARINEPID_ITER_GAP  pMarinePID      1.00316      
+4.534           PMARINEPID_ITER_LEN  pMarinePID      0.00124      
+4.584           PMARINEPID_ITER_GAP  pMarinePID      1.00314      
+4.584           PMARINEPID_ITER_LEN  pMarinePID      0.00196      
+4.619           NAV_X                uSimMarine      0.00000      
+4.619           NAV_Y                uSimMarine      -43.87294    
+4.619           NAV_LAT              uSimMarine      24.80796     
+4.619           NAV_LONG             uSimMarine      121.24969    
+4.619           NAV_HEADING          uSimMarine      180.00000    
+4.619           NAV_SPEED            uSimMarine      0.00000      
+4.619           NAV_DEPTH            uSimMarine      0.00000      
+4.619           SIMULATION_MODE      uSimMarine      TRUE 
+4.619           NAV_Z                uSimMarine      -0.00000     
+4.619           NAV_PITCH            uSimMarine      0.00000      
+4.619           NAV_YAW              uSimMarine      -3.14159     
+4.619           TRUE_X               uSimMarine      0.00000      
+4.619           TRUE_Y               uSimMarine      -43.87294    
+4.619           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+4.619           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+4.619           USIMMARINE_ITER_GAP  uSimMarine      1.00108      
+4.619           USIMMARINE_ITER_LEN  uSimMarine      0.00070      
+4.634           PMARINEPID_ITER_GAP  pMarinePID      1.00560      
+4.635           PMARINEPID_ITER_LEN  pMarinePID      0.00110      
+4.669           PNODEREPORTER_ITER_GAP pNodeReporter   1.00088      
+4.670           NODE_REPORT_LOCAL    pNodeReporter   NAME=heron,X=0,Y=-43.87,SPD=0,HDG=180,DEP=0,LAT=24.8079559,LON=121.24968505,TYPE=kayak,COLOR=yellow,MODE=PARK,ALLSTOP=ManualOverride,INDEX=6,YAW=-1.5707963,TIME=1623403347.61,LENGTH=4 
+4.670           PNODEREPORTER_ITER_LEN pNodeReporter   0.00042      
+4.681           UXMS_405_ITER_GAP    uXMS_405        1.00433      
+4.681           UXMS_405_ITER_LEN    uXMS_405        0.00027      
+4.685           PMARINEPID_ITER_GAP  pMarinePID      1.00324      
+4.685           PMARINEPID_ITER_LEN  pMarinePID      0.00118      
+4.718           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00167      
+4.718           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00011      
+4.735           PMARINEPID_ITER_GAP  pMarinePID      1.00324      
+4.735           PMARINEPID_ITER_LEN  pMarinePID      0.00142      
+4.781           PIMUHEADING_ITER_GAP pImuHeading     1.00122      
+4.781           VIEW_VECTOR          pImuHeading     x=0,y=-43.87294,ang=0,mag=5,head_size=2,label=hdg,edge_color=green,vertex_size=5,edge_size=5 
+4.781           PIMUHEADING_ITER_LEN pImuHeading     0.00058      
+4.782           PHELMIVP_ITER_GAP    pHelmIvP        1.00158      
+4.782           IVPHELM_CPU          pHelmIvP        0.00000      
+4.782           IVPHELM_STATE        pHelmIvP        PARK 
+4.782           PHELMIVP_ITER_LEN    pHelmIvP        0.00016      
+4.785           PMARINEPID_ITER_GAP  pMarinePID      1.00360      
+4.785           PMARINEPID_ITER_LEN  pMarinePID      0.00116      
+4.835           PMARINEPID_ITER_GAP  pMarinePID      1.00334      
+4.835           PMARINEPID_ITER_LEN  pMarinePID      0.00132      
+4.869           NAV_X                uSimMarine      0.00000      
+4.869           NAV_Y                uSimMarine      -43.79778    
+4.869           NAV_LAT              uSimMarine      24.80796     
+4.869           NAV_LONG             uSimMarine      121.24969    
+4.869           NAV_HEADING          uSimMarine      180.00000    
+4.869           NAV_SPEED            uSimMarine      0.00000      
+4.869           NAV_DEPTH            uSimMarine      0.00000      
+4.869           SIMULATION_MODE      uSimMarine      TRUE 
+4.869           NAV_Z                uSimMarine      -0.00000     
+4.869           NAV_PITCH            uSimMarine      0.00000      
+4.869           NAV_YAW              uSimMarine      -3.14159     
+4.869           TRUE_X               uSimMarine      0.00000      
+4.869           TRUE_Y               uSimMarine      -43.79778    
+4.869           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+4.869           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+4.869           USIMMARINE_ITER_GAP  uSimMarine      1.00221      
+4.869           USIMMARINE_ITER_LEN  uSimMarine      0.00034      
+4.877           UFLDNODEBROKER_ITER_GAP uFldNodeBroker  1.00018      
+4.877           PSHARE_CMD           uFldNodeBroker  cmd=output,src_name=NODE_BROKER_PING_0,dest_name=NODE_BROKER_PING,route=localhost:9300 
+4.877           UFLDNODEBROKER_ITER_LEN uFldNodeBroker  0.00007      
+4.882           UXMS_405_ITER_GAP    uXMS_405        1.00204      
+4.882           UXMS_405_ITER_LEN    uXMS_405        0.00026      
+4.885           PMARINEPID_ITER_GAP  pMarinePID      1.00400      
+4.885           PMARINEPID_ITER_LEN  pMarinePID      0.00078      
+4.935           PMARINEPID_ITER_GAP  pMarinePID      1.00294      
+4.936           PMARINEPID_ITER_LEN  pMarinePID      0.00116      
+4.968           UPROCESSWATCH_ITER_GAP uProcessWatch   1.00134      
+4.968           UPROCESSWATCH_ITER_LEN uProcessWatch   0.00011      
+4.986           PMARINEPID_ITER_GAP  pMarinePID      1.00304      
+4.986           PMARINEPID_ITER_LEN  pMarinePID      0.00076      
+5.031           PIMUHEADING_ITER_GAP pImuHeading     1.00111      
+5.031           VIEW_VECTOR          pImuHeading     x=0,y=-43.79778,ang=0,mag=5,head_size=2,label=hdg,edge_color=green,vertex_size=5,edge_size=5 
+5.031           PIMUHEADING_ITER_LEN pImuHeading     0.00073      
+5.032           PHELMIVP_ITER_GAP    pHelmIvP        1.00127      
+5.032           IVPHELM_CPU          pHelmIvP        0.00000      
+5.032           IVPHELM_STATE        pHelmIvP        PARK 
+5.032           PHELMIVP_ITER_LEN    pHelmIvP        0.00023      
+5.036           PMARINEPID_ITER_GAP  pMarinePID      1.00280      
+5.036           PMARINEPID_ITER_LEN  pMarinePID      0.00118      
+5.082           UXMS_405_ITER_GAP    uXMS_405        1.00310      
+5.083           UXMS_405_ITER_LEN    uXMS_405        0.00051      
+5.086           PMARINEPID_ITER_GAP  pMarinePID      1.00586      
+5.086           PMARINEPID_ITER_LEN  pMarinePID      0.00144      
+5.119           NAV_X                uSimMarine      0.00000      
+5.119           NAV_Y                uSimMarine      -43.72271    
+5.119           NAV_LAT              uSimMarine      24.80796     
+5.119           NAV_LONG             uSimMarine      121.24969    
+5.119           NAV_HEADING          uSimMarine      180.00000    
+5.119           NAV_SPEED            uSimMarine      0.00000      
+5.119           NAV_DEPTH            uSimMarine      0.00000      
+5.119           SIMULATION_MODE      uSimMarine      TRUE 
+5.119           NAV_Z                uSimMarine      -0.00000     
+5.119           NAV_PITCH            uSimMarine      0.00000      
+5.119           NAV_YAW              uSimMarine      -3.14159     
+5.119           TRUE_X               uSimMarine      0.00000      
+5.119           TRUE_Y               uSimMarine      -43.72271    
+5.119           NAV_HEADING_OVER_GROUND uSimMarine      0.00000      
+5.119           NAV_SPEED_OVER_GROUND uSimMarine      0.30000      
+5.119           USIMMARINE_ITER_GAP  uSimMarine      1.00085      
+5.120           USIMMARINE_ITER_LEN  uSimMarine      0.00074      
+5.136           PMARINEPID_ITER_GAP  pMarinePID      1.00450      
+5.136           PMARINEPID_ITER_LEN  pMarinePID      0.00110      
+5.170           PNODEREPORTER_ITER_GAP pNodeReporter   1.00104      
+5.170           NODE_REPORT_LOCAL    pNodeReporter   NAME=heron,X=0,Y=-43.72,SPD=0,HDG=180,DEP=0,LAT=24.80795725,LON=121.24968503,TYPE=kayak,COLOR=yellow,MODE=PARK,ALLSTOP=ManualOverride,INDEX=7,YAW=-1.5707963,TIME=1623403348.11,LENGTH=4 
+5.170           PNODEREPORTER_ITER_LEN pNodeReporter   0.00031      

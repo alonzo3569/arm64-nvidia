@@ -21,6 +21,8 @@ ADD_SUBDIRECTORY(pThrustControl)
 ADD_SUBDIRECTORY(pHelmIvP_IMU)
 ADD_SUBDIRECTORY(pNodeReporter_IMU)
 ADD_SUBDIRECTORY(pImuHeading)
+ADD_SUBDIRECTORY(pPinger)
+ADD_SUBDIRECTORY(pSourceLocalization)
 
 ##############################################################################
 #                           END of CMakeLists.txt

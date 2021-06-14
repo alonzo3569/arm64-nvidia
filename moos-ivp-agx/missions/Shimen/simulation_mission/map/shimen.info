@@ -1,0 +1,7 @@
+lat_north = 24.815169
+lat_south = 24.801535
+lon_east  = 121.263391
+lon_west  = 121.235968
+datum_lat = 24.808352
+datum_lon = 121.2496795
+//datum = (north + south)/2
