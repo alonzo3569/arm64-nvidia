@@ -20,7 +20,7 @@ Processconfig = ANTLER
   Run = pHostInfo       @ NewConsole = false
   Run = uFldShoreBroker @ NewConsole = false
   Run = pPinger         @ NewConsole = false
-  //Run = pSourceLocalization @ NewConsole = true
+  Run = pSourceLocalization @ NewConsole = true
 }
 
 #include plug_pShare.moos
@@ -46,38 +46,87 @@ ProcessConfig = uFldShoreBroker
 //--------------------------------------------------------
 ProcessConfig = pMarineViewer
 {
+//  AppTick    = 4
+//  CommsTick  = 4
+//
+//  tiff_file            = shimen.tif
+//  set_pan_x            = -90
+//  set_pan_y            = -280
+//  zoom                 = 0.65
+//  vehicles_shape_scale = 1.5
+//  vehicles_name_mode   = names+shortmode
+//
+//	nodes_font_size = xlarge
+//	procs_font_size = xlarge
+//	appcast_font_size = large
+//	
+//  point_viewable_labels   = false
+//  polygon_viewable_labels = false
+//  appcast_viewable     = true
+//  appcast_color_scheme = indigo
+//  hash_delta           = 50
+//  hash_viewable        = true
+//  hash_shade           = 0.35
+//
+//  scope = PHI_HOST_INFO
+//
+//  button_one   = DEPLOY  # DEPLOY_ALL=true 
+//  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false 
+//  button_one   = RETURN_ALL=false # STATION_KEEP_ALL=false
+//
+//  button_two   = RETURN  # RETURN_ALL=true
+//  button_two   = STATION_KEEP_ALL=false
+//
+//  button_three = STATION  # STATION_KEEP_ALL=true
+
   AppTick    = 4
   CommsTick  = 4
 
   tiff_file            = shimen.tif
+
   set_pan_x            = -90
   set_pan_y            = -280
   zoom                 = 0.65
-  vehicles_shape_scale = 1.5
-  vehicles_name_mode   = names+shortmode
+  vehicle_shape_scale  = 1.5
+  hash_delta           = 50
+  hash_shade           = 0.22
+  hash_viewable        = true
 
-	nodes_font_size = xlarge
-	procs_font_size = xlarge
-	appcast_font_size = large
-	
-  point_viewable_labels   = false
-  polygon_viewable_labels = false
+  trails_point_size   = 1
+
+  // Appcast configuration
+  appcast_height       = 75
+  appcast_width        = 30
   appcast_viewable     = true
   appcast_color_scheme = indigo
-  hash_delta           = 50
-  hash_viewable        = true
-  hash_shade           = 0.35
+  nodes_font_size      = medium
+  procs_font_size      = medium
+  appcast_font_size    = small
 
-  scope = PHI_HOST_INFO
+  scope  = RETURN
 
-  button_one   = DEPLOY  # DEPLOY_ALL=true 
-  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false 
+//  button_one = DEPLOY # DEPLOY=true
+//  button_one = MOOS_MANUAL_OVERRIDE=false #THRUST_MODE_DIFFERENTIAL=false
+//  button_two = RETURN # RETURN=true #MOOS_MANUAL_OVERRIDE=false #THRUST_MODE_DIFFERENTIAL=false
+//  button_three  = POSEKEEPING #THRUST_MODE_DIFFERENTIAL=true #MOOS_MANUAL_OVERRIDE=true
+//  //button_four   =  # READY=true #MOOS_MANUAL_OVERRIDE=false
+//
+//  action  = MENU_KEY=deploy # DEPLOY = true # RETURN = false
+//  action+ = MENU_KEY=deploy # MOOS_MANUAL_OVERRIDE=false
+//  action  = RETURN=true
+//  action+  = UPDATES_RETURN=speed=1.4
+//  action  = DRIFT_VECTOR_ADD="0,0.2"
+//  action  = DRIFT_VECTOR_ADD="180,0.2"
+
+  button_one   = DEPLOY  # DEPLOY_ALL=true
+  button_one   = MOOS_MANUAL_OVERRIDE_ALL=false
   button_one   = RETURN_ALL=false # STATION_KEEP_ALL=false
 
   button_two   = RETURN  # RETURN_ALL=true
   button_two   = STATION_KEEP_ALL=false
 
   button_three = STATION  # STATION_KEEP_ALL=true
+
 }
 
 //------------------------------------------

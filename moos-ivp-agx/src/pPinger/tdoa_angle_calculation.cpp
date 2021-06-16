@@ -13,9 +13,9 @@ double get_m(double x, double y, double pinger_x, double pinger_y)
 //
 //     atan2     90            moos      0         
 //               |                       |
-//      180      |      0        90      |      270
+//      180      |      0       270      |      90
 //         ----- A -----           ----- A -----    
-//     -180      |      0        90      |      270        
+//     -180      |      0       270      |      90        
 //               |                       |            
 //              -90                     180        
 //  
@@ -23,15 +23,16 @@ double get_m(double x, double y, double pinger_x, double pinger_y)
 	double delta_y = pinger_y - y;
 	double delta_x = pinger_x - x;
 	double m = atan2(delta_y, delta_x) * 180 / PI; // atan angle
+	cout << "atan :  " << m  << endl;
 
 	// Change atan2 to moos angle
 	if(m > 90.0 && m < 180.0)
 	{
-		m = m - 90.0;
+		m = -m + 450.0;
 	}
 	else
 	{
-		m = m + 270.0;
+		m = -m + 90.0;
 	}
 	return m;
 }
@@ -39,7 +40,7 @@ double get_m(double x, double y, double pinger_x, double pinger_y)
 
 double get_tdoa_angle(double m, double v1_nav_heading)
 {
-	double theta = v1_nav_heading - m;
+	double theta = m - v1_nav_heading;
 	if(theta > 180.0)
 	{
 		theta = theta - 360.0;
@@ -56,14 +57,14 @@ int main()
 {
 	// Init 
 	double pinger_x = 40;
-	double pinger_y = -40;
+	double pinger_y = 40;
 	double v1_x = 0;
 	double v1_y = 0;
 	double v2_x = 80;
 	double v2_y = 0;
 
-	double v1_nav_heading = 0.0;
-	double v2_nav_heading = 0.0;
+	double v1_nav_heading = 180.0;
+	double v2_nav_heading = 180.0;
 
 	// Calcualate slop
 	double m1 = get_m(v1_x, v1_y, pinger_x, pinger_y);
@@ -74,8 +75,8 @@ int main()
 	//Calculate tdoa heading
 	double tdoa_angle_v1 = get_tdoa_angle(m1, v1_nav_heading);
 	double tdoa_angle_v2 = get_tdoa_angle(m2, v2_nav_heading);
-	cout << "tdoa v1 in moos angle  : " << tdoa_angle_v1 << endl;
-	cout << "tdoa v2 in moos angle  : " << tdoa_angle_v2 << endl;
+	cout << "tdoa v1   : " << tdoa_angle_v1 << endl;
+	cout << "tdoa v2   : " << tdoa_angle_v2 << endl;
 		
 
 	return 0;

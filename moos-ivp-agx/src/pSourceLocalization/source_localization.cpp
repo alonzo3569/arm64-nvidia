@@ -12,20 +12,20 @@ double tdoa_to_moos_angle(double nav_hdg, double tdoa_angle)
 //
 //     tdoa      0              moos      0         
 //               |                        |
-//      -90      |      90        90      |      270
+//      -90      |      90       270      |       90
 //         ----- A -----            ----- A -----    
-//      -90      |      90        90      |      270        
+//      -90      |      90       270      |       90        
 //               |                        |            
 //          -180   +180                  180        
 // 
 	double tdoa_moos;
 	if(tdoa_angle > 0.0)
 	{
-		tdoa_moos = nav_hdg - tdoa_angle ;
+		tdoa_moos = nav_hdg + tdoa_angle ;
 	}
 	else
 	{
-		tdoa_moos = nav_hdg + abs(tdoa_angle);
+		tdoa_moos = nav_hdg - abs(tdoa_angle);
 	}
 
 	if(tdoa_moos > 360.0)
@@ -61,16 +61,19 @@ double theta_transform(double theta)
 //
 //    before      0             after      90          
 //                |                        |
-//        90      |      270      180      |       0
+//       270      |       90      180      |       0
 //          ----- A -----            ----- A -----   
-//        90      |      270      180      |      360   
+//       270      |       90      180      |      360   
 //                |                        |         
 //               180                      270        
 // 
-	theta = theta + 90.0;
-	if(theta > 360.0)
+	if(theta > 0.0 && theta < 90.0)
 	{
-		theta = theta - 360.0;
+		theta = -theta + 90.0;
+	}
+	else
+	{
+		theta = -theta + 450.0;
 	}
 	return theta;
 }
@@ -142,7 +145,8 @@ int main()
     // 2. Calculate another possible angle
     double tdoa12 = another_tdoa_angle(tdoa11); 
     double tdoa22 = another_tdoa_angle(tdoa21); 
- 
+
+    cout << "another angle : " << tdoa12 << endl;  
 
     // Calculate tdoa bearing in moos angle
     double theta11 = tdoa_to_moos_angle(nav_hdg1, tdoa11);
@@ -150,7 +154,7 @@ int main()
     double theta12 = tdoa_to_moos_angle(nav_hdg1, tdoa12);
     double theta22 = tdoa_to_moos_angle(nav_hdg2, tdoa22);
 
-    cout << "11: " << theta11 << endl; 
+    cout << "tdoa + nav heading to moos 11 : " << theta11 << endl; 
     cout << "12: " << theta12 << endl;
     cout << "21: " << theta21 << endl;
     cout << "22: " << theta22 << endl;
@@ -161,10 +165,28 @@ int main()
     theta21 = theta_transform(theta21);
     theta22 = theta_transform(theta22);
 
+    cout << "to tan theta 11 : " << theta11 << endl; 
+    cout << "to tan theta 12 : " << theta12 << endl; 
+    cout << "to tan theta 21 : " << theta21 << endl; 
+    cout << "to tan theta 22 : " << theta22 << endl; 
+
     // 3. Calculate m & k
     double m1, m2, k1, k2;
     get_m_k(x1, y1, theta11, m1, k1);
     get_m_k(x2, y2, theta21, m2, k2);
+
+    cout << "11: " << theta11 << endl;
+    cout << "12: " << theta12 << endl;
+    cout << "21: " << theta21 << endl;
+    cout << "22: " << theta22 << endl;
+
+
+    double theta[4] = {theta11, theta12, theta21, theta22};
+    cout << "theta[0] : " << theta[0] << endl;
+    cout << "theta[1] : " << theta[1] << endl;
+    cout << "theta[2] : " << theta[2] << endl;
+    cout << "theta[3] : " << theta[3] << endl;
+
 
     //Cramer formula
     double result_x, result_y;

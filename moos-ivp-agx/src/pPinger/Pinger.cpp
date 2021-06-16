@@ -162,8 +162,10 @@ bool Pinger::Iterate()
     m_toc = time(NULL);
   }
 
+  //bool active = true;
   XYPoint point(m_osx, m_osy);
   point.set_label("Pinger");
+  //point.set_active(active);
   point.set_color("vertex", "yellow");
   point.set_param("vertex_size", "3");
   string spec = point.get_spec();
@@ -274,9 +276,9 @@ double Pinger::get_m(double x, double y, double pinger_x, double pinger_y)
 //
 //     atan2     90            moos      0         
 //               |                       |
-//      180      |      0        90      |      270
+//      180      |      0       270      |      90
 //         ----- A -----           ----- A -----    
-//     -180      |      0        90      |      270        
+//     -180      |      0       270      |      90        
 //               |                       |            
 //              -90                     180        
 //  
@@ -284,15 +286,16 @@ double Pinger::get_m(double x, double y, double pinger_x, double pinger_y)
         double delta_y = pinger_y - y;
         double delta_x = pinger_x - x;
         double m = atan2(delta_y, delta_x) * 180 / PI; // atan angle
+        //cout << "atan :  " << m  << endl;
 
         // Change atan2 to moos angle
         if(m > 90.0 && m < 180.0)
         {
-                m = m - 90.0;
+                m = -m + 450.0;
         }
         else
         {
-                m = m + 270.0;
+                m = -m + 90.0;
         }
         return m;
 }
@@ -301,7 +304,7 @@ double Pinger::get_m(double x, double y, double pinger_x, double pinger_y)
 // Procedure: get_tdoa_angle()
 double Pinger::get_tdoa_angle(double m, double v1_nav_heading)
 {
-        double theta = v1_nav_heading - m;
+        double theta = m - v1_nav_heading;
         if(theta > 180.0)
         {
                 theta = theta - 360.0;
