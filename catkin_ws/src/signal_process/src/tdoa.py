@@ -21,8 +21,8 @@ class TDOA:
             self.tdoa_window_length= rospy.get_param('~tdoa_window_length', 1.0) #sec
             self.fs = rospy.get_param('~rate', 192000)
             self.threshold = rospy.get_param('~threshold', 10.0)
-            self.mic_distance = rospy.get_param('~mic_distance', 1)
-            self.c = rospy.get_param('~sound_speed', 1500)
+            self.mic_distance = rospy.get_param('~mic_distance', 0.3)
+            self.c = rospy.get_param('~sound_speed', 343)
             ##print "Set Format   : ", str(self.format), type(self.format)
 
             # Initialize

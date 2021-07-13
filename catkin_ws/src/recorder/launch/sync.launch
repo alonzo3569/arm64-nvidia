@@ -1,0 +1,33 @@
+<launch>
+
+    <!-- Params -->
+    <!-- <arg name="format" default="pyaudio.paInt32"/> -->
+    <arg name="channels" default="2"/>
+    <arg name="rate" default="192000"/>
+    <arg name="pyaudio_chunk" default="19200"/>
+    <arg name="msg_length" default="1.0"/>
+    <arg name="path" default="/root/arm64-nvidia/catkin_ws/src/recorder/wavefile/"/>
+
+
+    <!-- Focusrite -->
+    <node pkg="recorder" type="audio_sync.py" name="recorder_node" output="screen">
+        <!-- <param name="format" type="str" value="$(arg format)"/> -->
+        <param name="channels" type="int" value="$(arg channels)"/>
+        <param name="rate" type="int" value="$(arg rate)"/>
+        <param name="chunk" type="int" value="$(arg pyaudio_chunk)"/>
+        <param name="msg_length" type="double" value="$(arg msg_length)"/>
+    </node>
+
+    <!-- Focusrite -->
+    <node pkg="recorder" type="audio_sync_2.py" name="recorder_node2" output="screen">
+        <!-- <param name="format" type="str" value="$(arg format)"/> -->
+        <param name="channels" type="int" value="$(arg channels)"/>
+        <param name="rate" type="int" value="$(arg rate)"/>
+        <param name="chunk" type="int" value="$(arg pyaudio_chunk)"/>
+        <param name="msg_length" type="double" value="$(arg msg_length)"/>
+    </node>
+
+
+
+
+</launch>

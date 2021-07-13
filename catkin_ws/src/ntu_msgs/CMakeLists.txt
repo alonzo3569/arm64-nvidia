@@ -56,6 +56,7 @@ add_message_files(
    Kalman.msg
    RobotStatus.msg
    Tdoa.msg
+   SyncTdoa.msg
  )
 
 ## Generate services in the 'srv' folder

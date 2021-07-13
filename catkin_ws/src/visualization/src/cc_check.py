@@ -60,8 +60,8 @@ class PLOT:
         self.ax3.set_xlabel("Time(s)")
         self.ax3.set_ylabel("Voltage(volts)")
 
-        self.ax4.set_ylim([-1, 1])
-        self.ax4.set_xlim([0, 192000])
+        self.ax4.set_ylim([0, 100])
+        self.ax4.set_xlim([0, 384000])
         #self.ax4.set_xlim([0, self.tdoa_window_length])
         self.ax4.set_xlabel("Time(s)")
         self.ax4.set_ylabel("Voltage(volts)")
