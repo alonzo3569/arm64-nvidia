@@ -1,0 +1,23 @@
+<launch>
+
+    <!-- Params -->
+    <arg name="rate" default="192000"/>
+    <arg name="tdoa_window_length" default="1.0"/>
+    <arg name="monitor_vehicle" default="duckieboat"/>
+
+    <group ns="$(arg monitor_vehicle)">
+
+        <!-- tdoa signal monitor-->
+        <node pkg="visualization" type="tdoa_signal_monitor.py" name="tdoa_signal_monitor_node" output="screen">
+            <param name="tdoa_window_length" type="double" value="$(arg tdoa_window_length)"/>
+            <param name="rate" type="int" value="$(arg rate)"/>
+        </node>
+
+        <!-- tdoa angle monitor-->
+        <node pkg="visualization" type="tdoa_angle_monitor.py" name="tdoa_angle_monitor_node" output="screen">
+        </node>
+
+    </group>
+
+
+</launch>

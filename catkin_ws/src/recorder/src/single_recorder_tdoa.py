@@ -1,5 +1,9 @@
 #!/usr/bin/env python
-
+'''
+Tdoa threshold method using ch1/ch2
+Msg type : ntu_msgs/SyncTdoa
+Author : logan zhang
+'''
 import rospy
 import pyaudio
 import numpy as np
@@ -21,7 +25,7 @@ class Recorder:
             self.rate = rospy.get_param('~rate', 192000) 
             self.chunk = rospy.get_param('~chunk', 19200)
             self.msg_length = rospy.get_param('~msg_length', 1.0)
-            self.threshold = rospy.get_param('~threshold', 10.0)
+            self.threshold = rospy.get_param('~threshold', 5.0)
             print "Set Format   : ", str(self.format), type(self.format)
             print "Set Channels : ", self.channels, type(self.channels)
             print "Set Rate : ", self.rate, type(self.rate)
@@ -39,13 +43,13 @@ class Recorder:
                             frames_per_buffer=self.chunk)
 
             # Initialize msg
-            #self.hydro_msg = HydrophoneData()
             self.tdoa_msg = SyncTdoa()
             self.msg_count = 0
             self.ch1_volt_avg = 0.0
             self.ch2_volt_avg = 0.0
-            self.pre_time = 0.0
-            self.wait = False
+            self.pre_time_ch1 = 0.0
+            self.pre_time_ch2 = 0.0
+            self.wait = 1.0 # sec
 
 
             # Publisher
@@ -62,17 +66,14 @@ class Recorder:
 
                 # Convert string to numpy array
                 # data array element type : int32
-                time_stamp = rospy.Time.now().to_nsec()  # type 'int'
-                print"start : ", time_stamp
-                print"type  : ", type(time_stamp)
+                msg_begin_time = rospy.Time.now().to_nsec()  # type 'int'
+                #print"start : ", msg_begin_time
+                #print"type  : ", type(msg_begin_time)
                 data_array = np.fromstring(data, dtype='int32')
 
                 # Deinterleave, select 1 channel
-                # ch_1, ch_2 type : float64
-                # size of ch_1, ch_2 : self.chunk=19200, shape : (19200,)
                 ch_1 = data_array[0::self.channels] / 2.0**31 
                 ch_2 = data_array[1::self.channels] / 2.0**31
-                #print "ch_1 shape", ch_1.shape
 
                 # Threshold tdoa
                 cur_avg_ch1 = np.average(abs(ch_1))
@@ -86,39 +87,53 @@ class Recorder:
 
                 time = rospy.get_time()
 
-                #self.function(time, pre_time, wait)
-                if time - self.pre_time > 2.0 and self.wait == True: #sec
-                    print"reset"
-                    self.wait = False
+                peak_time_ch1, self.pre_time_ch1 = self.wait_for_peak(time, self.pre_time_ch1, index1, msg_begin_time, self.rate, self.wait)
+                peak_time_ch2, self.pre_time_ch2 = self.wait_for_peak(time, self.pre_time_ch2, index2, msg_begin_time, self.rate, self.wait)
 
-                # Quit if no peak found
-                if index1.size == 0 or self.wait == True:
-                    print"quit"
+                # Don't pubsh if there's no peak in both channel
+                #print"peak ch1 : ", peak_time_ch1
+                #print"peak ch2 : ", peak_time_ch2
+                #print"pre  ch1 : ", self.pre_time_ch1
+                #print"pre  ch2 : ", self.pre_time_ch2
+                if (peak_time_ch1 == 0  and
+                    peak_time_ch2 == 0):
+                    print"No peaks found, not publishing...."
                     continue
-
-                # Calculate peak time
-                peak_time_ch1 = self.get_peak_time(time_stamp, index1[0], self.rate)
-                self.wait = True
-                self.pre_time = rospy.get_time()
 
                 # Publish msg
                 self.tdoa_msg.header = Header(frame_id=Recorder.FRAME_ID, stamp=rospy.Time.now())
                 self.tdoa_msg.ch1_time = peak_time_ch1
+                self.tdoa_msg.ch2_time = peak_time_ch2
                 self.pub.publish(self.tdoa_msg)
                 #rospy.loginfo("Publish %i samples of data", len(self.hydro_msg.data_ch1))
 
         def get_peak_time(self, time_start, index, fs):
             
-            #delta_t = float(index1[0]) / self.rate # sec
             delta_t = float(index) / fs # sec
             epoch = int(delta_t * 1000000000)
             peak_time = time_start + epoch
             print "delta_t       : ", delta_t
             print "delta epoch   : ", epoch
             print "time final    : ", peak_time
-            print "time final    : ", type(peak_time)
             return peak_time
 
+        def wait_for_peak(self, time, pre_time, index, msg_start_time, fs, wait):
+
+            # Quit if time between previous peak is less than 2 sec
+            if time - pre_time < 1.0:
+                print"Wait for ", wait, " second"
+                return 0, pre_time 
+
+            # Quit if no peak found
+            if index.size == 0: 
+                print"No peaks found in current buffer"
+                return 0,0 
+
+            # Calculate peak time
+            print"Output peak"
+            peak_time = self.get_peak_time(msg_start_time, index[0], fs)
+            pre_time = rospy.get_time()
+            return peak_time, pre_time
 
 
         def onShutdown(self):
@@ -126,7 +141,7 @@ class Recorder:
 
 
 if __name__ == '__main__':
-	rospy.init_node('recorder')
+	rospy.init_node('tdoa_recorder')
 	node = Recorder()
         node.run()
         rospy.on_shutdown(node.onShutdown)

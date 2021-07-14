@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+'''
+Plot ch1 time series data after bandpass filter & threshold
+     ch2 time series data after bandpass filter & threshold
+     ch1 & ch2 time series data after bandpass filter
+     cross correlation result
+Msg type : ntu_msgs/Tdoa
+Author : logan zhang
+'''
 
 import rospy
 import numpy as np
@@ -12,7 +20,6 @@ class PLOT:
 
     # Static params
     FRAME_ID = "base_link"
-    PLOT_TIME = 5
 
     def __init__(self):
         # OnstartUp
@@ -41,9 +48,6 @@ class PLOT:
         self.line7, = self.ax4.plot([], [], color='blue', linestyle='-', linewidth=1)
         self.line8, = self.ax4.plot([], [], color='red', marker='o', markersize=2, markeredgecolor='black', linestyle='')
         self.line = [self.line1, self.line2, self.line3, self.line4, self.line5, self.line6, self.line7, self.line8]
-        #self.line, = self.ax.plot([], [], color='red', marker='o', markersize=10, markeredgecolor='black', linestyle='')
-        #self.ax.set_label_position()
-        #self.ax.axis('auto')
 
         self.ax1.set_ylim([-1, 1])
         self.ax1.set_xlim([0, self.tdoa_window_length])
@@ -64,7 +68,7 @@ class PLOT:
         self.ax4.set_xlim([0, 384000])
         #self.ax4.set_xlim([0, self.tdoa_window_length])
         self.ax4.set_xlabel("Time(s)")
-        self.ax4.set_ylabel("Voltage(volts)")
+        self.ax4.set_ylabel("CC value")
         #self.ax4.axis('auto')
 
         # Subscriber
@@ -81,11 +85,6 @@ class PLOT:
         self.threshold = msg.threshold
         self.ch1_avg = msg.ch1_avg
         self.ch2_avg = msg.ch2_avg
-        print(f'ch1_avg : {self.ch1_avg}')
-        #print(f'Incoming msg size : {ch1.shape}')
-        #print "ch1 shape : ", ch1.shape #(192000,)
-        #time_start = rospy.get_time()
-        #print "time_start : ", time_start
 
         # Remove previous data and append new data
         self.plot_array_ch1 = ch1
@@ -94,15 +93,13 @@ class PLOT:
         # Calculate threshold
         self.threshold_line_ch1 = self.threshold * self.ch1_avg * np.ones(ch1.shape[0])
         self.threshold_line_ch2 = self.threshold * self.ch2_avg * np.ones(ch2.shape[0])
-        #print(f'After remove : {self.plot_array_ch1.shape}')
-        #print(f'After append : {self.plot_array_ch1.shape}')
 
 
     def animation_frame(self,i):
 
-        print(f'shape of t axis          {self.t_axis.shape}')
-        print(f'shape of plot array      {self.plot_array_ch1.shape}')
-        print(f'shape of threshold line ch1  {self.threshold_line_ch1.shape}')
+        #print(f'shape of t axis          {self.t_axis.shape}')
+        #print(f'shape of plot array      {self.plot_array_ch1.shape}')
+        #print(f'shape of threshold line ch1  {self.threshold_line_ch1.shape}')
         # Notice : t_axis & ch1 should be same size
 
         if self.t_axis.shape[0] == self.plot_array_ch1.shape[0]:
@@ -115,16 +112,16 @@ class PLOT:
             self.line[4].set_data(self.t_axis, self.plot_array_ch1)
             self.line[5].set_data(self.t_axis, self.plot_array_ch2)
 
-            print(f'cc shape  : {self.cc.shape[0]}')
-            print(f'cc t axis : {len(np.arange(0,self.cc.shape[0],1))}')
-            self.line[6].set_data(np.arange(0,self.cc.shape[0],1), self.cc)
             max_cc_index = np.argmax(np.abs(self.cc))
             index_cc_value = self.cc[max_cc_index]
+            self.line[6].set_data(np.arange(0,self.cc.shape[0],1), self.cc)
             self.line[7].set_data(max_cc_index, index_cc_value)
             #self.ax4.set_xlim([0, len(self.cc)])
             #self.ax4.set_ylim([-0.05, 0.05])
-            print(f'===========================> max value index : {max_cc_index}')
-            print(f'===========================> max value       : {index_cc_value}')
+            #print(f'cc shape  : {self.cc.shape[0]}')
+            #print(f'cc t axis : {len(np.arange(0,self.cc.shape[0],1))}')
+            print(f'max value index : {max_cc_index}')
+            print(f'max value       : {index_cc_value}')
 
         return self.line
 
@@ -135,7 +132,7 @@ class PLOT:
 
 
 if __name__ == '__main__':
-    rospy.init_node('plot_tdoa')
+    rospy.init_node('cc_check')
     node = PLOT()
     animation = FuncAnimation(node.fig, node.animation_frame, interval=500, blit=True)
     rospy.on_shutdown(node.onShutdown)

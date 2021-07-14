@@ -41,7 +41,7 @@ class Recorder:
             self.hydro_msg = HydrophoneData()
 
             # Publisher
-	    self.pub = rospy.Publisher("/hydrophone_data", HydrophoneData, queue_size=10)
+	    self.pub = rospy.Publisher("hydrophone_data", HydrophoneData, queue_size=10)
 
 
         def run(self):

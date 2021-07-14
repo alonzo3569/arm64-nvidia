@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-
+'''
+Plot ch1 time series data and
+     ch1 time series data after bandpass filter and
+     ch1 threshold
+Msg type : ntu_msgs/Tdoa 
+Author : logan zhang
+'''
 import rospy
 import numpy as np
 import matplotlib.pyplot as plt
@@ -36,9 +42,6 @@ class PLOT:
         self.line3, = self.ax2.plot([], [], color='blue', linestyle='-', linewidth=1)
         self.line4, = self.ax2.plot([], [], color='red', linestyle='-', linewidth=1)
         self.line = [self.line1, self.line2, self.line3, self.line4]
-        #self.line, = self.ax.plot([], [], color='red', marker='o', markersize=10, markeredgecolor='black', linestyle='')
-        #self.ax.set_label_position()
-        #self.ax.axis('auto')
 
         self.ax1.set_ylim([-1, 1])
         self.ax1.set_xlim([0, self.tdoa_window_length])
@@ -64,11 +67,6 @@ class PLOT:
 
         self.threshold = msg.threshold
         self.ch1_avg = msg.ch1_avg
-        print(f'ch1_avg : {self.ch1_avg}')
-        #print(f'Incoming msg size : {ch1.shape}')
-        #print "ch1 shape : ", ch1.shape #(192000,)
-        #time_start = rospy.get_time()
-        #print "time_start : ", time_start
 
         # Remove previous data and append new data
         self.plot_array_ch1 = ch1
@@ -78,15 +76,13 @@ class PLOT:
 
         # Calculate threshold
         self.threshold_line = self.threshold * self.ch1_avg * np.ones(ch1.shape[0])
-        #print(f'After remove : {self.plot_array_ch1.shape}')
-        #print(f'After append : {self.plot_array_ch1.shape}')
 
 
     def animation_frame(self,i):
 
-        print(f'shape of t axis          {self.t_axis.shape}')
-        print(f'shape of plot array      {self.plot_array_ch1.shape}')
-        print(f'shape of threshold line  {self.threshold_line.shape}')
+        #print(f'shape of t axis          {self.t_axis.shape}')
+        #print(f'shape of plot array      {self.plot_array_ch1.shape}')
+        #print(f'shape of threshold line  {self.threshold_line.shape}')
         # Notice : t_axis & ch1 should be same size
 
         if self.t_axis.shape[0] == self.plot_array_ch1.shape[0]:
@@ -105,7 +101,7 @@ class PLOT:
 
 
 if __name__ == '__main__':
-    rospy.init_node('plot_tdoa')
+    rospy.init_node('bandpass_threshold_effect')
     node = PLOT()
     animation = FuncAnimation(node.fig, node.animation_frame, interval=500, blit=True)
     rospy.on_shutdown(node.onShutdown)

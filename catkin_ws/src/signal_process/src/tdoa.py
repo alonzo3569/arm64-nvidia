@@ -38,8 +38,6 @@ class TDOA:
             self.time_cutoff = 0.05 # sec (experience from test result)
             self.gcc = True
 
-
-
             # Subscriber
             rospy.Subscriber("hydrophone_data", HydrophoneData, self.hydro_cb)
 
@@ -97,21 +95,29 @@ class TDOA:
             # Check threshold
             index_ch1, = np.where(ch1 > self.threshold * self.ch1_volt_avg)
             index_ch2, = np.where(ch2 > self.threshold * self.ch2_volt_avg)
-            print("thres  ch1 :  ", self.threshold * self.ch1_volt_avg)
-            print("thres  ch2 :  ", self.threshold * self.ch2_volt_avg)
+            #print("thres  ch1 :  ", self.threshold * self.ch1_volt_avg)
+            #print("thres  ch2 :  ", self.threshold * self.ch2_volt_avg)
 
             over_voltage_ch1_front, = np.where(index_ch1 < int(self.time_cutoff * self.fs))
             over_voltage_ch2_front, = np.where(index_ch2 < int(self.time_cutoff * self.fs))
             over_voltage_ch1_back,  = np.where(index_ch1 > int((self.tdoa_window_length - self.time_cutoff) * self.fs))
             over_voltage_ch2_back,  = np.where(index_ch2 > int((self.tdoa_window_length - self.time_cutoff) * self.fs))
 
-            print("================ooooooooooooooooooo================")
-            print"index_ch1_number : ", len(index_ch1)
-            print"index_ch2_number : ", len(index_ch2)
-            print"len_ch1_number : ", len(over_voltage_ch1_front)
-            print"len_ch2_number : ", len(over_voltage_ch2_front)
-            print"len_ch1_number : ", len(over_voltage_ch1_back)
-            print"len_ch2_number : ", len(over_voltage_ch2_back)
+            print("===================================================")
+            print("   How many voltages are larger than threshold?    ")
+            print("===================================================")
+            print"ch1  : ", len(index_ch1)
+            print"ch2  : ", len(index_ch2)
+            print("===================================================")
+            print(" Does these volts located in the front cutoff area?")
+            print("===================================================")
+            print"ch1 : ", len(over_voltage_ch1_front)
+            print"ch2 : ", len(over_voltage_ch2_front)
+            print("===================================================")
+            print(" Does these volts located in the back cutoff area?")
+            print("===================================================")
+            print"ch1 : ", len(over_voltage_ch1_back)
+            print"ch2 : ", len(over_voltage_ch2_back)
 
             if (index_ch1.size == 0 or # over thres volts exist
                 index_ch2.size == 0 or 
@@ -122,9 +128,6 @@ class TDOA:
                 print("Signal below threshold or appear in cutoff range")
                 return
 
-
-
-            print("Enter if")
 
             # Calculate time difference
             if self.gcc == True:
@@ -142,16 +145,14 @@ class TDOA:
 
             # Calculate angle (Assume ch1:left ch2:right)
             limit = self.mic_distance / self.c
+
             if abs(tau) > limit:
-                print("over limit")
-                #return
+                print("Tau  out of  range.........")
+
             rad = np.arcsin(self.c * tau / self.mic_distance)
             theta = math.degrees(rad)
             print "==========================="  
-            print "basic tau    : ",  tau 
-            #print "stable tau   : ", stable_tau 
-            #print cc 
-            #print type(cc) 
+            print "Tau    : ",  tau 
             print "theta : ", theta 
             print "==========================="
 
@@ -258,7 +259,6 @@ class TDOA:
             # iter
             for i in iter_index:
                 if data[i] > data[i-1] and  data[i] > data[i+1]: # this is peak
-                    #print("pks appear")
                     locs = np.append(locs, i) # output pk value index
 
             return locs.astype(int)
@@ -294,8 +294,8 @@ class TDOA:
             # Calculate time difference tau using yhh threshold method
             tau = float(index_ch1_start - index_ch2_start) / self.fs
             stable_tau = float(stable_ch1_index_start - stable_ch2_index_start) / self.fs
-            print("       tau : ", tau)
-            print("stable tau : ", stable_tau)
+            #print("       tau : ", tau)
+            #print("stable tau : ", stable_tau)
         
             return tau, stable_tau
 

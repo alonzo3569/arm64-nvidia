@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-
+'''
+Plot real-time spectrogram of focusrite channel 1
+Author : logan zhang
+'''
 import rospy
 import numpy as np
 import matplotlib.pyplot as plt
