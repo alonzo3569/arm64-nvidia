@@ -1,0 +1,11 @@
+//------------------------------------------------
+// pSourceLocalization config block
+
+ProcessConfig = pSourceLocalization
+{
+  AppTick   = 4
+  CommsTick = 4
+
+  // pSourceLocalization configuration here
+}
+

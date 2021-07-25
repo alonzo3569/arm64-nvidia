@@ -7,7 +7,6 @@ Author : logan zhang
 import rospy
 import pyaudio
 import numpy as np
-from scipy.signal import butter, lfilter
 from ntu_msgs.msg import HydrophoneData, SyncTdoa
 from std_msgs.msg import Header
 
@@ -26,7 +25,7 @@ class Recorder:
             self.rate = rospy.get_param('~rate', 192000) 
             self.chunk = rospy.get_param('~chunk', 19200)
             self.msg_length = rospy.get_param('~msg_length', 1.0)
-            self.threshold = rospy.get_param('~threshold', 10.0)
+            self.threshold = rospy.get_param('~threshold', 5.0)
             print "Set Format   : ", str(self.format), type(self.format)
             print "Set Channels : ", self.channels, type(self.channels)
             print "Set Rate : ", self.rate, type(self.rate)
@@ -50,8 +49,7 @@ class Recorder:
             self.ch2_volt_avg = 0.0
             self.pre_time_ch1 = 0.0
             self.pre_time_ch2 = 0.0
-            self.wait = 5.0 # sec
-            self.time_cutoff = self.chunk * 0.1
+            self.wait = 1.0 # sec
 
 
             # Publisher
@@ -63,74 +61,50 @@ class Recorder:
             while not rospy.is_shutdown():
 
                 # Read data stream, if chunk size is too small, data will be overwrite by new data
+                # type(data) : str
                 data = self.stream.read(self.chunk, exception_on_overflow = False)
 
                 # Convert string to numpy array
+                # data array element type : int32
                 msg_begin_time = rospy.Time.now().to_nsec()  # type 'int'
+                #print"start : ", msg_begin_time
+                #print"type  : ", type(msg_begin_time)
                 data_array = np.fromstring(data, dtype='int32')
 
                 # Deinterleave, select 1 channel
                 ch_1 = data_array[0::self.channels] / 2.0**31 
-                #ch_2 = data_array[1::self.channels] / 2.0**31
-
-                # Bandpass
-                ch1_filtered = self.butter_bandpass_filter(ch_1, lowcut=1000, highcut=15000, fs=self.rate)
-                #ch2_filtered = self.butter_bandpass_filter(ch_2, lowcut=1000, highcut=15000, fs=self.rate)
+                ch_2 = data_array[1::self.channels] / 2.0**31
 
                 # Threshold tdoa
-                cur_avg_ch1 = np.average(abs(ch1_filtered))
-                #cur_avg_ch2 = np.average(abs(ch2_filtered))
+                cur_avg_ch1 = np.average(abs(ch_1))
+                cur_avg_ch2 = np.average(abs(ch_2))
                 self.ch1_volt_avg = (self.ch1_volt_avg * self.msg_count + cur_avg_ch1) / (self.msg_count + 1)
-                #self.ch2_volt_avg = (self.ch2_volt_avg * self.msg_count + cur_avg_ch2) / (self.msg_count + 1)
+                self.ch2_volt_avg = (self.ch2_volt_avg * self.msg_count + cur_avg_ch2) / (self.msg_count + 1)
                 self.msg_count = self.msg_count + 1
 
-                index1, = np.where(ch1_filtered > self.ch1_volt_avg * self.threshold)
-                #index2, = np.where(ch2_filtered > self.ch2_volt_avg * self.threshold)
-
-                over_voltage_ch1_front, = np.where(index1 < int(self.time_cutoff))
-                #over_voltage_ch2_front, = np.where(index2 < int(self.time_cutoff))
-                over_voltage_ch1_back,  = np.where(index1 > int(self.chunk - self.time_cutoff))
-                #over_voltage_ch2_back,  = np.where(index2 > int(self.chunk - self.time_cutoff))
-
-
-                if (len(over_voltage_ch1_front) != 0 or # over thres volts are not in cutoff range 
-                    len(over_voltage_ch1_back)  != 0): 
-                    print("Signal appear in cutoff range")
-                    continue
+                index1, = np.where(ch_1 > self.ch1_volt_avg * self.threshold)
+                index2, = np.where(ch_2 > self.ch2_volt_avg * self.threshold)
 
                 time = rospy.get_time()
 
                 peak_time_ch1, self.pre_time_ch1 = self.wait_for_peak(time, self.pre_time_ch1, index1, msg_begin_time, self.rate, self.wait)
-                #peak_time_ch2, self.pre_time_ch2 = self.wait_for_peak(time, self.pre_time_ch2, index2, msg_begin_time, self.rate, self.wait)
+                peak_time_ch2, self.pre_time_ch2 = self.wait_for_peak(time, self.pre_time_ch2, index2, msg_begin_time, self.rate, self.wait)
 
-                # Don't publish if there's no peak in both channel
-                print"peak ch1 : ", peak_time_ch1
+                # Don't pubsh if there's no peak in both channel
+                #print"peak ch1 : ", peak_time_ch1
                 #print"peak ch2 : ", peak_time_ch2
                 #print"pre  ch1 : ", self.pre_time_ch1
                 #print"pre  ch2 : ", self.pre_time_ch2
-                if (peak_time_ch1 == 0):#  and
-                    #peak_time_ch2 == 0):
+                if (peak_time_ch1 == 0  and
+                    peak_time_ch2 == 0):
                     print"No peaks found, not publishing...."
                     continue
 
                 # Publish msg
                 self.tdoa_msg.header = Header(frame_id=Recorder.FRAME_ID, stamp=rospy.Time.now())
                 self.tdoa_msg.ch1_time = peak_time_ch1
-                #self.tdoa_msg.ch2_time = peak_time_ch2
-
-                self.tdoa_msg.data_ch1.extend(ch1_filtered.tolist())
-                #self.tdoa_msg.data_ch2.extend(ch2_filtered.tolist())
-
-                self.tdoa_msg.threshold = self.threshold
-                self.tdoa_msg.ch1_avg = self.ch1_volt_avg
-                #self.tdoa_msg.ch2_avg = self.ch2_volt_avg
-
+                self.tdoa_msg.ch2_time = peak_time_ch2
                 self.pub.publish(self.tdoa_msg)
-
-                # Clear after publish
-                del self.tdoa_msg.data_ch1[:]
-                #del self.tdoa_msg.data_ch2[:]
-                
                 #rospy.loginfo("Publish %i samples of data", len(self.hydro_msg.data_ch1))
 
         def get_peak_time(self, time_start, index, fs):
@@ -146,7 +120,7 @@ class Recorder:
         def wait_for_peak(self, time, pre_time, index, msg_start_time, fs, wait):
 
             # Quit if time between previous peak is less than 2 sec
-            if time - pre_time < wait:
+            if time - pre_time < 1.0:
                 print"Wait for ", wait, " second"
                 return 0, pre_time 
 
@@ -161,17 +135,6 @@ class Recorder:
             pre_time = rospy.get_time()
             return peak_time, pre_time
 
-        def butter_bandpass(self, lowcut, highcut, fs, order):
-            nyq = 0.5 * fs
-            low = lowcut / nyq
-            high = highcut / nyq
-            b, a = butter(order, [low, high], btype='bandpass')
-            return b, a
-        
-        def butter_bandpass_filter(self, data, lowcut, highcut, fs, order=5):
-            b, a = self.butter_bandpass(lowcut, highcut, fs, order=order)
-            y = lfilter(b, a, data)
-            return y
 
         def onShutdown(self):
             rospy.loginfo("Recorder node Shutdown.")

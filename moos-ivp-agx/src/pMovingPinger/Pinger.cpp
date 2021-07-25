@@ -55,6 +55,14 @@ bool Pinger::OnNewMail(MOOSMSG_LIST &NewMail)
     if(key == "FOO")
       cout << "great!";
 
+    else if(key == "NAV_X_PINGER")
+    {
+       m_osx = dval;
+    }
+    else if(key == "NAV_Y_PINGER")
+    {
+       m_osy = dval;
+    }
     else if(key == "NAV_X_HERON")
     {
        m_osx_heron = dval;
@@ -117,6 +125,8 @@ bool Pinger::OnConnectToServer()
 void Pinger::registerVariables()
 {
   AppCastingMOOSApp::RegisterVariables();
+  Register("NAV_X_PINGER", 0);
+  Register("NAV_Y_PINGER", 0);
   Register("NAV_X_HERON", 0);
   Register("NAV_Y_HERON", 0);
   Register("NAV_HEADING_HERON", 0);
@@ -138,8 +148,8 @@ bool Pinger::Iterate()
   // Do your thing here!
 
   // Pinger localtion
-  m_osx = 40.0;
-  m_osy = 40.0;
+  //m_osx = 40.0;
+  //m_osy = 40.0;
   time_t tic = time(NULL);
   double delta_t = difftime(tic, m_toc);
 
@@ -163,26 +173,29 @@ bool Pinger::Iterate()
   }
 
   //bool active = true;
-  XYPoint point(m_osx, m_osy);
-  point.set_label("Pinger");
-  //point.set_active(active);
-  point.set_color("vertex", "yellow");
-  point.set_param("vertex_size", "3");
-  string spec = point.get_spec();
-  Notify("VIEW_POINT", spec);
+  //XYPoint point(m_osx, m_osy);
+  //point.set_label("Pinger");
+  ////point.set_active(active);
+  //point.set_color("vertex", "yellow");
+  //point.set_param("vertex_size", "3");
+  //string spec = point.get_spec();
+  //Notify("VIEW_POINT", spec);
 
   // Calculate vehicle's tdoa angle for pinger localization simualtion
   // Calaulate slop
   double m1 = get_m(m_osx_heron, m_osy_heron, m_osx, m_osy);
   double m2 = get_m(m_osx_duckieboat, m_osy_duckieboat, m_osx, m_osy);
+  cout << "pinger x           : " << m_osx << endl;
+  cout << "pinger y           : " << m_osy << endl;
   cout << "heron x           : " << m_osx_heron << endl;
-  cout << "duckieboat x      : " << m_osx_duckieboat << endl;
+  cout << "heron y           : " << m_osy_heron << endl;
   cout << "m1 in moos angle  : " << m1 << endl;
   cout << "m2 in moos angle  : " << m2 << endl;
   
   //Calculate tdoa heading
   double tdoa_angle_v1 = get_tdoa_angle(m1, m_hdg_heron);
   double tdoa_angle_v2 = get_tdoa_angle(m2, m_hdg_duckieboat);
+  cout << "heron heading : " << m_hdg_heron << endl;
   cout << "tdoa v1 in moos angle  : " << tdoa_angle_v1 << endl;
   cout << "tdoa v2 in moos angle  : " << tdoa_angle_v2 << endl;
   Notify("TDOA_ANGLE_HERON", tdoa_angle_v1);

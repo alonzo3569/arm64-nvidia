@@ -22,7 +22,9 @@ ADD_SUBDIRECTORY(pHelmIvP_IMU)
 ADD_SUBDIRECTORY(pNodeReporter_IMU)
 ADD_SUBDIRECTORY(pImuHeading)
 ADD_SUBDIRECTORY(pPinger)
+ADD_SUBDIRECTORY(pMovingPinger)
 ADD_SUBDIRECTORY(pSourceLocalization)
+ADD_SUBDIRECTORY(pSourceLocalizationFront)
 
 ##############################################################################
 #                           END of CMakeLists.txt
