@@ -34,7 +34,7 @@ class TDOA:
             duckieboat_sub = message_filters.Subscriber("/duckieboat/sync_tdoa", SyncTdoa)
             heron_sub = message_filters.Subscriber("/heron/sync_tdoa", SyncTdoa)
 
-            ats = message_filters.ApproximateTimeSynchronizer([duckieboat_sub, heron_sub], queue_size=5, slop=0.1 )
+            ats = message_filters.ApproximateTimeSynchronizer([duckieboat_sub, heron_sub], queue_size=5, slop=1 )
             ats.registerCallback(self.tdoa_cb)
 
             # Publisher
