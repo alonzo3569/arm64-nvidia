@@ -8,7 +8,7 @@
     <arg name="msg_length" default="1.0"/>
     <arg name="fft_chunk" default="1024"/>
     <arg name="overlap" default="0.9"/>
-    <arg name="path" default="/root/arm64-nvidia/catkin_ws/src/recorder/wavefile/"/>
+    <arg name="path" default="/root/SSD/"/> <!-- cmdline params -->
     <arg name="tdoa_window_length" default="1.0"/>
     <arg name="threshold" default="10.0"/>
     <arg name="mic_distance" default="0.3"/>
@@ -23,6 +23,16 @@
         <param name="msg_length" type="double" value="$(arg msg_length)"/>
     </node>
 
+    <!-- wav -->
+    <node pkg="recorder" type="wav.py" name="wav_node" output="screen">
+        <param name="channels" type="int" value="$(arg channels)"/>
+        <param name="rate" type="int" value="$(arg rate)"/>
+        <param name="path" type="str" value="$(arg path)"/>
+    </node>
+
+    <!-- rosbag -->
+    <node pkg="rosbag" type="record" name="roabag_record" args="-o $(arg path) -a"/>
+
 
     <!-- tdoa -->
     <node pkg="signal_process" type="tdoa.py" name="tdoa_node" output="screen">
@@ -33,6 +43,10 @@
         <param name="sound_speed" type="double" value="$(arg sound_speed)"/>
     </node>
 
+    <!-- save tdoa -->
+    <node pkg="signal_process" type="save_tdoa.py" name="save_tdoa_node" output="screen">
+        <param name="path" type="str" value="$(arg path)"/>
+    </node>
 
 
 </launch>

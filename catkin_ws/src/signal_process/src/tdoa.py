@@ -170,10 +170,11 @@ class TDOA:
             self.tdoa_msg.threshold = self.threshold
             self.tdoa_msg.ch1_avg = self.ch1_volt_avg
             self.tdoa_msg.ch2_avg = self.ch2_volt_avg
-            self.tdoa_msg.tdoa_angle = theta
             self.tdoa_msg.basic_tau = tau
             #self.tdoa_msg.stable_tau = stable_tau
             self.tdoa_msg.tdoa_angle = theta
+            self.tdoa_msg.mic_distance = self.mic_distance
+            self.tdoa_msg.sound_speed = self.c
             self.pub.publish(self.tdoa_msg)
 
             # Clear after publish

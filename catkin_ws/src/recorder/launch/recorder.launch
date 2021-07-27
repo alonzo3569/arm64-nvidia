@@ -6,7 +6,7 @@
     <arg name="rate" default="192000"/>
     <arg name="pyaudio_chunk" default="19200"/>
     <arg name="msg_length" default="1.0"/>
-    <arg name="path" default="/root/arm64-nvidia/catkin_ws/src/recorder/wavefile/"/>
+    <arg name="path" default="/root/SSD/"/> <!-- cmdline params -->
 
 
     <!-- Focusrite -->
@@ -24,6 +24,9 @@
         <param name="rate" type="int" value="$(arg rate)"/>
         <param name="path" type="str" value="$(arg path)"/>
     </node>
+
+    <!-- rosbag -->
+    <node pkg="rosbag" type="record" name="roabag_record" args="-o $(arg path) -a"/>
 
 
 

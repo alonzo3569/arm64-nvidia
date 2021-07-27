@@ -10,3 +10,5 @@ float32 ch2_avg
 float32 tdoa_angle
 float64 basic_tau
 float64 stable_tau
+float64 mic_distance
+float64 sound_speed
