@@ -1,0 +1,12 @@
+#!/bin/bash
+
+path="/root/SSD"
+date=`date "+%H-%M-%S-%m%d"`
+
+mkdir $path/$date
+
+roslaunch signal_process duckieboat_tdoa.launch path:=$path/$date/
+
+
+
+
