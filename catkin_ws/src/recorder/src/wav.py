@@ -18,7 +18,7 @@ class Wav:
         # OnstartUp
         self.channels = rospy.get_param('~channels', 2)
         self.rate = rospy.get_param('~rate', 192000)
-        self.path = rospy.get_param('~path', "/root/vnc-bionic/catkin_ws/src/recorder/wavefile/")
+        self.path = rospy.get_param('~path', "/root/SSD/")
 
         # Initialize wav
         try:
@@ -34,7 +34,7 @@ class Wav:
         self.wav.setframerate(self.rate)
 
         # Publisher
-        self.hydro_sub = rospy.Subscriber("/hydrophone_data", HydrophoneData, self.hydro_cb)
+        self.hydro_sub = rospy.Subscriber("hydrophone_data", HydrophoneData, self.hydro_cb)
 
 
     def hydro_cb(self, msg):

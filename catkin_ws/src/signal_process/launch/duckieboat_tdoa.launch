@@ -41,6 +41,18 @@
             <param name="path" type="str" value="$(arg path)"/>
         </node>
 
+        <!-- wav -->
+        <node pkg="recorder" type="wav.py" name="wav_node" output="screen">
+            <param name="channels" type="int" value="$(arg channels)"/>
+            <param name="rate" type="int" value="$(arg rate)"/>
+            <param name="path" type="str" value="$(arg path)"/>
+        </node>
+    
+        <!-- rosbag -->
+        <node pkg="rosbag" type="record" name="roabag_record" args="-o $(arg path) -a"/>
+
+
+
     </group>
 
 </launch>
