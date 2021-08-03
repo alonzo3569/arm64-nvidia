@@ -49,7 +49,7 @@
         </node>
 
         <!-- rosbag -->
-        <node pkg="rosbag" type="record" name="roabag_record" args="-o $(arg path) -a"/>
+        <!-- <node pkg="rosbag" type="record" name="roabag_record" args="-o $(arg path) -a"/> -->
 
     </group>
 
