@@ -10,9 +10,7 @@ TDOA_PID=$!
 xterm -e roslaunch localization heron_tank_localization.launch &
 LOCALIZE_PID=$!
 
-#cd /root/arm64-nvidia/moos-ivp-agx/missions/Water_tank/tdoa_mission/heron/
-#source launch_vehicle.sh -s
-
+ps
 
 # Wait until the script receives SIGINT / SIGTERM
 while read input; 
