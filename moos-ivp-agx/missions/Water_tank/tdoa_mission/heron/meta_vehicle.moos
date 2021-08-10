@@ -191,14 +191,14 @@ ProcessConfig = uSimMarine
 
   start_x       = 0
   start_y       = -20
-  start_heading = 180
+  start_heading = 0
   start_speed   = 0
 
   prefix        = NAV
 
 #ifdef SIM
   //drift_x       = 0.3
-  drift_y       = 0.3
+  //drift_y       = 0.3
 #else
 #endif
 

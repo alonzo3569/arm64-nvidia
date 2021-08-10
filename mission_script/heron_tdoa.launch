@@ -1,12 +1,27 @@
-#!/bin/bash
-
+#!/bin/bash -e
 path="/root/SSD"
 date=`date "+%H-%M-%S-%m%d"`
+#VNAME="heron"
 
 mkdir $path/$date
 
-roslaunch signal_process heron_tdoa.launch path:=$path/$date/
+xterm -e roslaunch signal_process heron_tdoa.launch path:=$path/$date/ &
+TDOA_PID=$!
+xterm -e roslaunch localization heron_tank_localization.launch &
+LOCALIZE_PID=$!
+
+#cd /root/arm64-nvidia/moos-ivp-agx/missions/Water_tank/tdoa_mission/heron/
+#source launch_vehicle.sh -s
 
 
+# Wait until the script receives SIGINT / SIGTERM
+while read input; 
+do
+  if [ "$input" = "q" ]; then
+    break
+  fi
+done
 
-
+echo "killing rosnode....."
+kill $TDOA_PID $LOCALIZE_PID
+rosnode cleanup

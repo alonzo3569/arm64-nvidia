@@ -23,10 +23,12 @@ ToMoosRosBridge::ToMoosRosBridge(){
     pub_NavLat = m_nh.advertise<std_msgs::Float64>("NAV_LAT", 10);
     pub_NavSpeed = m_nh.advertise<std_msgs::Float64>("NAV_SPEED_X", 10);
     pub_NavHdg = m_nh.advertise<std_msgs::Float64>("NAV_HEADING", 10);
+    pub_TdoaAngle = m_nh.advertise<std_msgs::Float64>("TDOA_ANGLE", 10);
 
     // Subscriber
     sub_gps = m_nh.subscribe("fix", 1000, &ToMoosRosBridge::callback_gps, this);
     sub_robot_status = m_nh.subscribe("robot_status", 1000, &ToMoosRosBridge::callback_robot_status, this);
+    sub_tdoa = m_nh.subscribe("tdoa", 1000, &ToMoosRosBridge::callback_tdoa, this);
 }
 
 // Destructor
@@ -51,6 +53,11 @@ void ToMoosRosBridge::callback_robot_status(const ntu_msgs::RobotStatus::ConstPt
     pub_NavY.publish(toRosFloat(y));
     pub_NavHdg.publish(toRosFloat(heading));
     pub_NavSpeed.publish(toRosFloat(0.0));
+}
+
+void ToMoosRosBridge::callback_tdoa(const ntu_msgs::Tdoa::ConstPtr& msg){
+    double tdoa_angle = msg->tdoa_angle;
+    pub_TdoaAngle.publish(toRosFloat(tdoa_angle));
 }
 
 std_msgs::Float64 ToMoosRosBridge::toRosFloat(double value){

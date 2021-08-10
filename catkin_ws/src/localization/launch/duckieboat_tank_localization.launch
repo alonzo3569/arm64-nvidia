@@ -1,0 +1,26 @@
+<launch>
+	<arg name="vehicle" default="duckieboat"/>
+	<arg name="latitude" default="25.014855"/>
+	<arg name="longitude" default="121.53578"/>
+	<arg name="heading" default="180.0"/>
+
+    <group ns="$(arg vehicle)">
+
+        <node pkg="localization" type="tank_localization.py" name="tank_localization" respawn="false" output="screen">
+            <param name="latitude" value="$(arg latitude)"/>
+            <param name="longitude" value="$(arg longitude)"/>
+            <param name="heading" value="$(arg heading)"/>
+        </node>
+
+        <node pkg="localization" type="To_moosrosbridge" name="To_moosrosbridge" respawn="false" output="screen" />
+    
+        <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
+            args="$(find localization)/config/duckieboat_bridge_params.xml $(find localization)/config/duckieboat.moos" 
+            respawn="false" output="screen" >
+            <param name="vehicle" value="$(arg vehicle)"/>
+        </node>
+
+
+    </group>
+
+</launch>

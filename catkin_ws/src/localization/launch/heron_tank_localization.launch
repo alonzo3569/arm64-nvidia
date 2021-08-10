@@ -1,0 +1,21 @@
+<launch>
+	<arg name="vehicle" default="heron"/>
+	<arg name="latitude" default="24.1713425"/>
+	<arg name="longitude" default="120.692385"/>
+	<arg name="heading" default="180.0"/>
+
+
+    <group ns="$(arg vehicle)">
+
+        <node pkg="localization" type="To_moosrosbridge" name="To_moosrosbridge" respawn="false" output="screen" /> 
+    
+        <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
+            args="$(find localization)/config/heron_tank_tdoa_bridge_params.xml $(find localization)/config/heron.moos" 
+            respawn="false" output="screen" >
+            <param name="vehicle" value="$(arg vehicle)"/>
+        </node>
+
+
+    </group>
+
+</launch>
