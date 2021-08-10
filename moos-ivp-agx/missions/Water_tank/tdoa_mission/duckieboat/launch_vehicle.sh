@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments
 #-------------------------------------------------------
-SHORE_IP="192.168.0.167" #192.168.1.214 #xps ip
+SHORE_IP="192.168.0.71" #192.168.1.214 #xps ip
 SHORE_LISTEN="9300"
 TIME_WARP=1
 VNAME="duckieboat"
@@ -66,7 +66,8 @@ nsplug meta_vehicle.moos targ_${VNAME}.moos -f \
     WARP=$TIME_WARP              \
     V_LISTEN=$VEHICLE_LISTEN     \
     SHORE_LISTEN=$SHORE_LISTEN   \
-    SHORE_IP=$SHORE_IP           
+    SHORE_IP=$SHORE_IP           \
+    $SIM
 
 
 if [ ${JUST_BUILD} = "yes" ] ; then

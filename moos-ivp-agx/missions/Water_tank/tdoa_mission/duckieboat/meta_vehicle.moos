@@ -26,6 +26,10 @@ ProcessConfig = ANTLER
   Run = pHostInfo          @ NewConsole = false
   Run = uFldNodeBroker     @ NewConsole = false
   Run = MOOS_ROS_BRIDGE    @ NewConsole = false
+#ifdef SIM
+  Run = uSimMarine         @ NewConsole = false
+#endif
+
 }
 
 //------------------------------------------
@@ -185,4 +189,28 @@ ProcessConfig = MOOS_ROS_BRIDGE
 
 
 
+//------------------------------------------
+// uSimMarine config block
 
+ProcessConfig = uSimMarine
+{
+  AppTick       = 4
+  CommsTick     = 4
+
+  start_x       = 20
+  start_y       = -20
+  start_heading = 0
+  start_speed   = 0
+
+  prefix        = NAV
+
+#ifdef SIM
+  //drift_x       = 0.3
+  //drift_y       = 0.3
+#else
+#endif
+
+  turn_rate     = 40
+  thrust_map    = 0:0, 20:1, 40:2, 60:3, 80:4, 100:5
+  thrust_reflect = true
+}
