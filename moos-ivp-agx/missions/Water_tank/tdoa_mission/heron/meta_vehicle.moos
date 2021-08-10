@@ -178,6 +178,7 @@ ProcessConfig = uFldNodeBroker
   BRIDGE = src=NAV_X, alias=NAV_X_%(VNAME)
   BRIDGE = src=NAV_Y, alias=NAV_Y_%(VNAME)
   BRIDGE = src=NAV_HEADING, alias=NAV_HEADING_%(VNAME)
+  BRIDGE = src=TDOA_ANGLE, alias=TDOA_ANGLE_%(VNAME)
 }
 
 //------------------------------------------

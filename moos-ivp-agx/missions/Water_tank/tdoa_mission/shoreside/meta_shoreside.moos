@@ -25,6 +25,7 @@ ProcessConfig = ANTLER
   Run = pHostInfo         @ NewConsole = false
   Run = pShare            @ NewConsole = false
   Run = uFldShoreBroker   @ NewConsole = false
+  Run = pSourceLocalizationFront @ NewConsole = false
 }
 
 //------------------------------------------
@@ -156,4 +157,13 @@ ProcessConfig = uFldShoreBroker
   qbridge  = MOOS_MANUAL_OVERRIDE, APPCAST_REQ
   qbridge  = THRUST_MODE_DIFFERENTIAL
 
+}
+
+/------------------------------------------
+// pSourceLocalization config block
+
+ProcessConfig = pSourceLocalizationFront
+{
+  AppTick   = 4
+  CommsTick = 4
 }
