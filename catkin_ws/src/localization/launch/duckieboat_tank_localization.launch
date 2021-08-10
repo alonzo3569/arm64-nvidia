@@ -6,16 +6,10 @@
 
     <group ns="$(arg vehicle)">
 
-        <node pkg="localization" type="tank_localization.py" name="tank_localization" respawn="false" output="screen">
-            <param name="latitude" value="$(arg latitude)"/>
-            <param name="longitude" value="$(arg longitude)"/>
-            <param name="heading" value="$(arg heading)"/>
-        </node>
-
         <node pkg="localization" type="To_moosrosbridge" name="To_moosrosbridge" respawn="false" output="screen" />
     
         <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
-            args="$(find localization)/config/duckieboat_bridge_params.xml $(find localization)/config/duckieboat.moos" 
+            args="$(find localization)/config/duckieboat_tank_tdoa_bridge_params.xml $(find localization)/config/duckieboat.moos" 
             respawn="false" output="screen" >
             <param name="vehicle" value="$(arg vehicle)"/>
         </node>
