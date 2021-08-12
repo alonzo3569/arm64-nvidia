@@ -75,9 +75,14 @@ class TDOA:
         def Iterate(self, event):
             
             ## If hydrophone data is shorter than tdoa_window
-            if (self.ch1_data_array.shape[0] < self.tdoa_array_size or 
-                self.ch1_data_array.shape[0] != self.ch2_data_array.shape[0]):
-                print("Data shorter than tdoa window or size of ch1 and 2 are different")
+            if (self.ch1_data_array.shape[0] < self.tdoa_array_size):
+                print"ch1_data_array : ", self.ch1_data_array.shape[0]
+                print"tdoa_array_size : ", self.tdoa_array_size
+                print("Data shorter than tdoa window")
+                return
+
+            if (self.ch1_data_array.shape[0] != self.ch2_data_array.shape[0]):
+                print("Size of ch1 and 2 are different")
                 return
 
             # Extract tdoa_window_length data from hydro array

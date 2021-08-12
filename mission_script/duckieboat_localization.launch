@@ -1,0 +1,27 @@
+#!/bin/bash
+
+xterm -e roscore &
+ROSCORE_PID=$!
+echo $ROSCORE_PID
+sleep 5
+
+xterm -e roslaunch localization duckieboat_tank_localization.launch &
+LOCALIZE_PID=$!
+echo $LOCALIZE_PID
+
+ps
+
+# Wait until the script receives SIGINT / SIGTERM
+while read input; 
+do
+  if [ "$input" = "q" ]; then
+    break
+  fi
+done
+
+echo "killing rosnode....."
+kill $LOCALIZE_PID $ROSCORE_PID
+rosnode cleanup
+
+
+
