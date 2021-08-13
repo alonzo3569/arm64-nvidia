@@ -1,0 +1,60 @@
+<launch>
+
+    <!-- Params -->
+    <arg name="vehicle" default="duckieboat"/>
+    <arg name="rate" default="192000"/>
+    <arg name="channels" default="2"/>
+    <arg name="pcm_id" default="hw:2,0"/>
+    <arg name="pcm_frames" default="100"/>
+    <arg name="pcm_bits" default="32"/>
+    <arg name="msg_length" default="1.0"/>
+    <arg name="fft_chunk" default="1024"/>
+    <arg name="overlap" default="0.9"/>
+    <arg name="path" default="/root/SSD/"/> <!-- cmdline params -->
+    <arg name="tdoa_window_length" default="1.0"/>
+    <arg name="threshold" default="10.0"/>
+    <arg name="mic_distance" default="0.3"/>
+    <arg name="sound_speed" default="343"/>
+
+
+    <group ns="$(arg vehicle)">
+
+        <!-- Focusrite -->
+        <node name="focusrite" pkg="recorder" type="focusrite" output="screen" clear_params="true">
+            <param name="pcm_id" type="str" value="$(arg pcm_id)"/>
+            <param name="pcm_frames" type="int" value="$(arg pcm_frames)"/>
+            <param name="pcm_sampleRate" type="int" value="$(arg rate)"/>
+            <param name="pcm_available_channels" type="int" value="$(arg channels)"/>
+            <param name="pcm_bits" type="int" value="$(arg pcm_bits)"/>
+            <param name="msg_length" type="double" value="$(arg msg_length)"/>
+        </node>
+
+        <!-- tdoa -->
+        <node pkg="signal_process" type="tdoa.py" name="tdoa_node" output="screen">
+            <param name="tdoa_window_length" type="double" value="$(arg tdoa_window_length)"/>
+            <param name="threshold" type="double" value="$(arg threshold)"/>
+            <param name="rate" type="int" value="$(arg rate)"/>
+            <param name="mic_distance" type="double" value="$(arg mic_distance)"/>
+            <param name="sound_speed" type="double" value="$(arg sound_speed)"/>
+        </node>
+
+        <!-- save tdoa -->
+        <node pkg="signal_process" type="save_tdoa.py" name="save_tdoa_node" output="screen">
+            <param name="path" type="str" value="$(arg path)"/>
+        </node>
+
+        <!-- wav -->
+        <node pkg="recorder" type="wav.py" name="wav_node" output="screen">
+            <param name="channels" type="int" value="$(arg channels)"/>
+            <param name="rate" type="int" value="$(arg rate)"/>
+            <param name="path" type="str" value="$(arg path)"/>
+        </node>
+    
+        <!-- rosbag -->
+        <node pkg="rosbag" type="record" name="roabag_record" args="-o $(arg path) -a"/>
+
+
+
+    </group>
+
+</launch>
