@@ -18,4 +18,9 @@
 
     </group>
 
+    <!-- multi-master discovery-->
+    <node pkg="master_discovery_fkie" type="master_discovery" name="master_discovery_node" output="screen">
+        <param name="_mcast_group" value="224.0.0.1"/>
+    </node>
+
 </launch>
