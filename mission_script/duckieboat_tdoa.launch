@@ -4,10 +4,10 @@ date=`date "+%H-%M-%S-%m%d"`
 
 mkdir $path/$date
 
-roslaunch signal_process duckieboat_tdoa_focusrite.launch path:=$path/$date/
+#roslaunch signal_process duckieboat_tdoa_focusrite.launch path:=$path/$date/
+roslaunch signal_process duckieboat_tdoa.launch path:=$path/$date/ 
 TDOA_PID=$!
 echo $TDOA_PID
-#roslaunch signal_process duckieboat_tdoa.launch path:=$path/$date/ 
 
 
 kill $TDOA_PID 
