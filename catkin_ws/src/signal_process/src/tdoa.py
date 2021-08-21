@@ -36,7 +36,7 @@ class TDOA:
             self.ch1_data_array_raw = np.array([])
             self.ch2_data_array_raw = np.array([])
             self.time_cutoff = 0.05 # sec (experience from test result)
-            self.gcc = True
+            self.gcc = False
 
             # Subscriber
             rospy.Subscriber("hydrophone_data", HydrophoneData, self.hydro_cb)
