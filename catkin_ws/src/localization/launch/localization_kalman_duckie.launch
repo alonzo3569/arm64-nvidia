@@ -1,7 +1,18 @@
 <launch>
 	<arg name="vehicle" default="duckieboat"/>
-	<arg name="latitude" default="25.014855"/>
-	<arg name="longitude" default="121.53578"/>
+
+        <!-- Taichung -->
+	<!-- <arg name="latitude" default="24.173425"/> -->
+	<!-- <arg name="longitude" default="120.692385"/> --> 
+
+        <!-- Shimen -->
+        <!-- <arg name="latitude" default="24.808352"/> -->
+        <!-- <arg name="longitude" default="121.2496795"/> -->
+
+        <!-- NTU -->
+        <arg name="latitude" default="25.0170535"/> 
+        <arg name="longitude" default="121.543044"/>
+
 
     <group ns="$(arg vehicle)">
 
@@ -20,5 +31,15 @@
 
 
     </group>
+
+    <!-- multi-master discovery-->
+    <node pkg="master_discovery_fkie" type="master_discovery" name="master_discovery_node" output="screen">
+        <param name="_mcast_group" value="224.0.0.1"/>
+    </node>
+
+    <!-- multi-master sync-->
+    <node pkg="master_sync_fkie" type="master_sync" name="master_sync_node" output="screen">
+    </node>
+
 
 </launch>
