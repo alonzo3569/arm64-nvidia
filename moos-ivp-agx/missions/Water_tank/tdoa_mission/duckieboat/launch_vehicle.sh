@@ -3,7 +3,7 @@
 #-------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments
 #-------------------------------------------------------
-SHORE_IP="192.168.0.71" #192.168.1.214 #xps ip
+SHORE_IP="192.168.0.40" #192.168.1.214 #xps ip
 SHORE_LISTEN="9300"
 TIME_WARP=1
 VNAME="duckieboat"

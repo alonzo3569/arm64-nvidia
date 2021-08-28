@@ -59,7 +59,7 @@ class SaveTdoa:
 
         # Create csv file
         np.savetxt(file_path + '/filtered_ch1.csv', ch1_filtered, delimiter=",")
-        np.savetxt(file_path + '/filtered_ch2.csv', ch1_filtered, delimiter=",")
+        np.savetxt(file_path + '/filtered_ch2.csv', ch2_filtered, delimiter=",")
 
         np.savetxt(file_path + '/raw_ch1.csv', ch1_raw, delimiter=",")
         np.savetxt(file_path + '/raw_ch2.csv', ch2_raw, delimiter=",")
