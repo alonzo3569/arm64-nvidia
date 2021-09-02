@@ -14,7 +14,7 @@
         <node pkg="localization" type="Heron_heading" name="Heron_heading" respawn="false" output="screen" />
 
         <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
-            args="$(find localization)/config/heron_bridge_params.xml $(find localization)/config/heron.moos"
+            args="$(find localization)/config/heron_tank_tdoa_bridge_params.xml $(find localization)/config/heron.moos"
             respawn="false" output="screen" >
             <param name="vehicle" value="$(arg vehicle)"/>
         </node>
