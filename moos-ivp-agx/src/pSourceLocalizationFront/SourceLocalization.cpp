@@ -59,7 +59,8 @@ bool SourceLocalization::OnNewMail(MOOSMSG_LIST &NewMail)
     {
        m_osy_heron = dval;
     }
-    else if(key == "NAV_HEADING_HERON")
+    //else if(key == "NAV_HEADING_HERON")
+    else if(key == "NAV_HEADING_IMU")
     {
        m_hdg_heron = dval;
     }
@@ -123,7 +124,8 @@ void SourceLocalization::registerVariables()
 
   Register("NAV_X_HERON", 0);
   Register("NAV_Y_HERON", 0);
-  Register("NAV_HEADING_HERON", 0);
+  //Register("NAV_HEADING_HERON", 0);
+  Register("NAV_HEADING_IMU", 0);
   Register("TDOA_ANGLE_HERON", 0);
   Register("NAV_Y_DUCKIEBOAT", 0);
   Register("NAV_X_DUCKIEBOAT", 0);

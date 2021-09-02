@@ -153,7 +153,7 @@ ProcessConfig = uFldShoreBroker
   //       [BRIDGE = src=FOO_$V,  alias=FOO] and
   //       [BRIDGE = src=FOO_ALL, alias=FOO]
 
-  qbridge  = DEPLOY, RETURN, STATION, NODE_REPORT, NODE_MESSAGE
+  qbridge  = DEPLOY, RETURN, STATION_KEEP, NODE_REPORT, NODE_MESSAGE
   qbridge  = MOOS_MANUAL_OVERRIDE, APPCAST_REQ
   qbridge  = THRUST_MODE_DIFFERENTIAL
 
