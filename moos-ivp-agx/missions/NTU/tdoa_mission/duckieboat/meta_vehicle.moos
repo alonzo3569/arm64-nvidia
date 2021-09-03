@@ -24,11 +24,11 @@ ProcessConfig = ANTLER
   Run = pHelmIvP           @ NewConsole = false
   Run = pHostInfo          @ NewConsole = false
   Run = uFldNodeBroker     @ NewConsole = false
-  Run = MOOS_ROS_BRIDGE    @ NewConsole = false
 #ifdef SIM
   Run = uSimMarine         @ NewConsole = false
+#else
+  Run = MOOS_ROS_BRIDGE    @ NewConsole = false
 #endif
-
 }
 
 //------------------------------------------
@@ -137,6 +137,8 @@ ProcessConfig = pHelmIvP
 
   behaviors  = meta_vehicle.bhv
   domain     = course:0:359:360
+  domain     = speed:0:3:10
+  ok_skew    = ANY //0829
 }
 
 //--------------------------------------------------
@@ -196,8 +198,8 @@ ProcessConfig = uSimMarine
   AppTick       = 4
   CommsTick     = 4
 
-  start_x       = 20
-  start_y       = -20
+  start_x       = 0
+  start_y       = 0
   start_heading = 0
   start_speed   = 0
 
