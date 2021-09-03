@@ -170,7 +170,8 @@ class TDOA:
             self.tdoa_msg.data_ch1_raw.extend(ch1_raw.tolist())
             self.tdoa_msg.data_ch2_raw.extend(ch2_raw.tolist())
             if self.gcc == True:
-                self.tdoa_msg.cc.extend(cc.tolist())
+                #self.tdoa_msg.cc.extend(cc.tolist())
+                self.tdoa_msg.cc.extend([])
 
             self.tdoa_msg.threshold = self.threshold
             self.tdoa_msg.ch1_avg = self.ch1_volt_avg

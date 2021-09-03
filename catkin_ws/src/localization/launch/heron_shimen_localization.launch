@@ -1,6 +1,4 @@
 <launch>
-
-    <!-- Params -->
     <arg name="vehicle" default="heron"/>
     <arg name="imu_config_file" default="$(find razor_imu_9dof)/config/my_razor.yaml"/>
 
@@ -11,15 +9,22 @@
             <arg name="razor_config_file" value="$(arg imu_config_file)"/>
         </include>
 
+        <!-- Heron heading -->
         <node pkg="localization" type="Heron_heading" name="Heron_heading" respawn="false" output="screen" />
 
+        <!-- BRIDGE -->
         <node pkg="moos-ros-bridge" type="Bridge" name="Bridge"
-            args="$(find localization)/config/heron_tank_tdoa_bridge_params.xml $(find localization)/config/heron.moos"
+            args="$(find localization)/config/heron_tank_tdoa_bridge_params.xml $(find localization)/config/heron.moos" 
             respawn="false" output="screen" >
             <param name="vehicle" value="$(arg vehicle)"/>
         </node>
 
+
     </group>
 
+    <!-- multi-master discovery-->
+    <node pkg="master_discovery_fkie" type="master_discovery" name="master_discovery_node" output="screen">
+        <param name="_mcast_group" value="224.0.0.1"/>
+    </node>
 
 </launch>

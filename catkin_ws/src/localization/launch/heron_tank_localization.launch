@@ -1,9 +1,5 @@
 <launch>
 	<arg name="vehicle" default="heron"/>
-	<arg name="latitude" default="24.1713425"/>
-	<arg name="longitude" default="120.692385"/>
-	<arg name="heading" default="180.0"/>
-
 
     <group ns="$(arg vehicle)">
 

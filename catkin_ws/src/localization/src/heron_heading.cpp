@@ -11,9 +11,11 @@ Localization::Localization(){
 
     // Publisher
     pub_NavHdg = m_nh.advertise<std_msgs::Float64>("NAV_HEADING_IMU", 10);
+    pub_TdoaAngle = m_nh.advertise<std_msgs::Float64>("TDOA_ANGLE", 10);
 
     // Subscriber
     sub_imu = m_nh.subscribe("imu", 1000, &Localization::callback_imu, this);
+    sub_tdoa = m_nh.subscribe("tdoa", 1000, &Localization::callback_tdoa, this);
 }
 
 // Destructor
@@ -34,6 +36,11 @@ void Localization::callback_imu(const sensor_msgs::Imu msg){
     yaw = yaw*180.0/M_PI;
     ROS_INFO("yaw in degree : %f", yaw);
     pub_NavHdg.publish(toMoosAngle(yaw));
+}
+
+void Localization::callback_tdoa(const ntu_msgs::Tdoa::ConstPtr& msg){
+    double tdoa_angle = msg->tdoa_angle;
+    pub_TdoaAngle.publish(toRosFloat(tdoa_angle));
 }
 
 std_msgs::Float64 Localization::toRosFloat(double value){

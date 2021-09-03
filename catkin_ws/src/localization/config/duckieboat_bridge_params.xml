@@ -50,6 +50,14 @@
     <direction>toMOOS</direction>
   </message>
 
+  <message>
+    <moosname>TDOA_ANGLE</moosname>
+    <rosname>TDOA_ANGLE</rosname>
+    <moostype>Double</moostype>
+    <rostype>std_msgs/Float64</rostype>
+    <direction>toMOOS</direction>
+  </message>
+
 
   <!-- MOOS Publish -->
   <message>

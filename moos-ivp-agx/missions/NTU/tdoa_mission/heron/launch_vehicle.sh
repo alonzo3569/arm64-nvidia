@@ -3,11 +3,11 @@
 #-------------------------------------------------------
 #  Part 1: Check for and handle command-line arguments
 #-------------------------------------------------------
-SHORE_IP="192.168.0.71" #Change here
+SHORE_IP="192.168.0.40" #Change here
 SHORE_LISTEN="9300"
 TIME_WARP=1
 VNAME="heron"
-M200_IP=192.168.5.1 #Change Here
+M200_IP=192.168.0.180 #Change Here
 VPORT="9005"
 VEHICLE_LISTEN="9305"
 JUST_BUILD="no"
