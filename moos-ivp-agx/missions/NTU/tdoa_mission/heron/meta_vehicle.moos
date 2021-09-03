@@ -91,7 +91,7 @@ ProcessConfig = pNodeReporter
   CommsTick	 = 2
 
   platform_type   = kayak
-  platform_color  = yellow
+  platform_color  = red
   platform_length = 4
 }
 //------------------------------------------
@@ -179,6 +179,7 @@ ProcessConfig = uFldNodeBroker
   BRIDGE = src=NAV_Y, alias=NAV_Y_%(VNAME)
   BRIDGE = src=NAV_HEADING, alias=NAV_HEADING_%(VNAME)
   BRIDGE = src=TDOA_ANGLE, alias=TDOA_ANGLE_%(VNAME)
+  BRIDGE = src=NAV_HEADING_IMU, alias=NAV_HEADING_IMU
 }
 
 //------------------------------------------
@@ -189,8 +190,8 @@ ProcessConfig = uSimMarine
   AppTick  	= 4
   CommsTick	= 4
 
-  start_x       = 0
-  start_y       = -20
+  start_x       = 20
+  start_y       = 0
   start_heading = 0
   start_speed   = 0
 

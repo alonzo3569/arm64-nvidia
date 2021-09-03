@@ -3,7 +3,8 @@
 initialize   DEPLOY = false
 initialize   RETURN = false
 initialize   READY  = false
-	
+initialize   STATION_KEEP = false
+
 //----------------------------------------------
 Behavior = BHV_Waypoint
 { 
@@ -13,8 +14,9 @@ Behavior = BHV_Waypoint
   duration_status = TIMES_LEFT
   condition = RETURN = false
   condition = DEPLOY = true
-  endflag   = RETURN = true
+  condition  = STATION_KEEP = false
 
+  endflag   = RETURN = true
   updates    = WPT_UPDATE
   perpetual  = true
 
@@ -46,6 +48,7 @@ Behavior=BHV_Waypoint
   pwt        = 100
   condition  = RETURN = true
   condition  = DEPLOY = true
+  condition  = STATION_KEEP = false
   perpetual  = true
   updates    = RETURN_UPDATE
   endflag    = RETURN = false
@@ -65,6 +68,7 @@ Behavior=BHV_ConstantSpeed
   pwt        = 200
   condition  = SPD=true
   condition  = DEPLOY = true
+  condition  = STATION_KEEP = false
   perpetual  = true
   updates    = SPEED_UPDATE
   endflag    = SPD = false
@@ -72,4 +76,15 @@ Behavior=BHV_ConstantSpeed
      speed = 0.5
      duration = 10
      duration_reset = CONST_SPD_RESET=true
-	
+}
+
+//----------------------------------------------
+Behavior = BHV_StationKeep
+{
+  name         = station-keep
+  pwt          = 100
+  condition  = STATION_KEEP = true
+  endflag    = STATION_KEEP = false
+  center_activate = true
+}
+   	
