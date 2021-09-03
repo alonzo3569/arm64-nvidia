@@ -62,6 +62,7 @@ bool SourceLocalization::OnNewMail(MOOSMSG_LIST &NewMail)
     //else if(key == "NAV_HEADING_HERON")
     else if(key == "NAV_HEADING_IMU")
     {
+       cout << "Subscribe NAV_HEADING_IMU" << endl;
        m_hdg_heron = dval;
     }
     else if(key == "TDOA_ANGLE_HERON")

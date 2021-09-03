@@ -25,7 +25,7 @@ ProcessConfig = ANTLER
   Run = pHostInfo         @ NewConsole = false
   Run = pShare            @ NewConsole = false
   Run = uFldShoreBroker   @ NewConsole = false
-  Run = pSourceLocalizationFront @ NewConsole = false
+  Run = pSourceLocalizationFront @ NewConsole = true
 }
 
 //------------------------------------------
