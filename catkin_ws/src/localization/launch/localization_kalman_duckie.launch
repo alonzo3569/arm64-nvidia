@@ -10,12 +10,12 @@
         <!-- <arg name="longitude" default="121.2496795"/> -->
 
         <!-- NTU -->
-        <arg name="latitude" default="25.0170535"/> 
-        <arg name="longitude" default="121.543044"/>
+        <!-- <arg name="latitude" default="25.0170535"/> -->
+        <!-- <arg name="longitude" default="121.543044"/> -->
 
         <!-- Shimen small-->
-        <!-- <arg name="latitude" default="24.8105485"/> -->
-        <!-- <arg name="longitude" default="121.248473"/> -->
+        <arg name="latitude" default="24.8105485"/>
+        <arg name="longitude" default="121.248473"/>
 
     <group ns="$(arg vehicle)">
 

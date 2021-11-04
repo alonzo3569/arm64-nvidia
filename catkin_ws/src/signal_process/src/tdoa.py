@@ -55,8 +55,8 @@ class TDOA:
             ch2 = np.array(msg.data_ch2)
 
             # Bandpass
-            ch1_filtered = self.butter_bandpass_filter(ch1, lowcut=1000, highcut=15000, fs=self.fs)
-            ch2_filtered = self.butter_bandpass_filter(ch2, lowcut=1000, highcut=15000, fs=self.fs)
+            ch1_filtered = self.butter_bandpass_filter(ch1, lowcut=3000, highcut=9000, fs=self.fs)
+            ch2_filtered = self.butter_bandpass_filter(ch2, lowcut=3000, highcut=9000, fs=self.fs)
 
             # Calculate avg voltage as threshold
             cur_avg_ch1 = np.average(abs(ch1_filtered))

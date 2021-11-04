@@ -12,8 +12,8 @@
     <arg name="path" default="/root/SSD/"/> <!-- cmdline params -->
     <arg name="tdoa_window_length" default="1.0"/>
     <arg name="threshold" default="10.0"/>
-    <arg name="mic_distance" default="0.3"/>
-    <arg name="sound_speed" default="343"/>
+    <arg name="mic_distance" default="1"/>
+    <arg name="sound_speed" default="1500"/>
 
 
     <group ns="$(arg vehicle)">
