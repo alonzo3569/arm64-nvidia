@@ -54,15 +54,36 @@ class KalmanFilter(object):
 
         # Plot after PLOT_TIME sec
         if rospy.get_time() - self.start > KalmanFilter.PLOT_TIME:
+
+            # Calculate RMSE
+            kalman_x = np.array(self.msg.kalman_x).reshape(len(self.msg.kalman_x), 1)
+            gps_x = np.array(self.msg.gps_x).reshape(len(self.msg.gps_x), 1)
+            gt_x = np.array(self.gt_x_list).reshape(len(self.gt_x_list), 1)
+
+            kalman_error = abs(kalman_x - gt_x)
+            kalman_mse = sum(kalman_error ** 2)/ len(kalman_error)
+            print(kalman_error.shape)
+            print(sum(kalman_error ** 2))
+            kalman_rmse = kalman_mse ** 0.5
+            print("Kalman RMSE : ", kalman_rmse)
+
+            gps_error = abs(gps_x - gt_x)
+            gps_mse = sum(gps_error ** 2)/ len(gps_error)
+            gps_rmse = gps_mse ** 0.5
+            print("GPS RMSE : ", gps_rmse)
+            
             if self.plot == False:
                 fig, ax = plt.subplots(1, figsize=(30,30))
-                ax.scatter(self.msg.gps_x, self.msg.gps_y, 15, label='gps') # 15: size of scatter point
-                ax.scatter(self.gt_x_list, self.gt_y_list, 15, label='ground truth')
-                ax.scatter(self.msg.kalman_x, self.msg.kalman_y, 15, label='kalman filter(gps+imu)')
+                ax.scatter(self.msg.gps_x, self.msg.gps_y, 10, label='gps position') # 15: size of scatter point
+                ax.scatter(self.gt_x_list, self.gt_y_list, 10, label='ground truth position')
+                ax.scatter(self.msg.kalman_x, self.msg.kalman_y, 10, label='kalman filter position')
                 ax.legend(loc='upper right')
-                ax.set_title('ground truth & sensor data & filtered')
+                ax.set_title('Ground Truth Position v.s. GPS v.s. Kalman Filter Position')
+                ax.set_xlabel('X (meter)')
+                ax.set_ylabel('Y (meter)')
                 plt.show()
                 self.plot = True
+
             return
 
         # Sub ground truth msg
